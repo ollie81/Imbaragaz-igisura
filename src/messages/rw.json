@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "description": "Imiti gakondo n'ibicuruzwa by'umwimerere i Musanze, mu Rwanda."
+  },
+  "common": {
+    "skipToContent": "Jya ku bikubiye ku rupapuro",
+    "language": "Ururimi",
+    "home": "Ahabanza",
+    "call": "Hamagara",
+    "callNumber": "Hamagara {number}",
+    "whatsapp": "WhatsApp",
+    "whatsappNumber": "Twandikire kuri WhatsApp: {number}",
+    "contact": "Twandikire",
+    "location": "Aho dukorera",
+    "openingHours": "Amasaha y'akazi",
+    "everyDay": "Buri munsi",
+    "closed": "Hafunze",
+    "openOnMap": "Reba ku ikarita"
+  },
+  "days": {
+    "1": "Kuwa Mbere",
+    "2": "Kuwa Kabiri",
+    "3": "Kuwa Gatatu",
+    "4": "Kuwa Kane",
+    "5": "Kuwa Gatanu",
+    "6": "Kuwa Gatandatu",
+    "7": "Ku Cyumweru"
+  },
+  "footer": {
+    "rights": "Uburenganzira bwose burasigasiwe."
+  },
+  "home": {
+    "eyebrow": "Musanze, Rwanda",
+    "tagline": "Imiti gakondo n'ibicuruzwa by'umwimerere",
+    "intro": "Urubuga rwacu rushya ruri gutegurwa. Hagati aho, duhamagare cyangwa utwandikire kuri WhatsApp — twishimiye kugufasha.",
+    "visitUs": "Dusure"
+  },
+  "notFound": {
+    "title": "Uru rupapuro ntirwabonetse",
+    "description": "Urupapuro ushaka ntirubaho cyangwa rwimuriwe ahandi.",
+    "backHome": "Subira ahabanza"
+  },
+  "admin": {
+    "title": "Ubuyobozi",
+    "signedInAs": "Winjiye nka {name}",
+    "login": {
+      "title": "Kwinjira k'umuyobozi",
+      "notConfigured": "Uburyo bwo kwinjira ntiburashyirwaho. Vugana n'uwakoze urubuga."
+    },
+    "dashboard": {
+      "title": "Ibiro",
+      "intro": "Ibikoresho byo gucunga ibicuruzwa n'amakuru y'ubucuruzi bizagaragara hano."
+    }
+  }
+}

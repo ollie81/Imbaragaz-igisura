@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "description": "Traditional medicine and natural products in Musanze, Rwanda."
+  },
+  "common": {
+    "skipToContent": "Skip to main content",
+    "language": "Language",
+    "home": "Home",
+    "call": "Call",
+    "callNumber": "Call {number}",
+    "whatsapp": "WhatsApp",
+    "whatsappNumber": "Chat on WhatsApp: {number}",
+    "contact": "Contact",
+    "location": "Location",
+    "openingHours": "Opening hours",
+    "everyDay": "Every day",
+    "closed": "Closed",
+    "openOnMap": "Open in maps"
+  },
+  "days": {
+    "1": "Monday",
+    "2": "Tuesday",
+    "3": "Wednesday",
+    "4": "Thursday",
+    "5": "Friday",
+    "6": "Saturday",
+    "7": "Sunday"
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  },
+  "home": {
+    "eyebrow": "Musanze, Rwanda",
+    "tagline": "Traditional medicine and natural products",
+    "intro": "Our new website is being prepared. In the meantime, call us or send us a WhatsApp message — we are happy to help.",
+    "visitUs": "Visit us"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you are looking for does not exist or has moved.",
+    "backHome": "Back to the home page"
+  },
+  "admin": {
+    "title": "Administration",
+    "signedInAs": "Signed in as {name}",
+    "login": {
+      "title": "Administrator sign-in",
+      "notConfigured": "Sign-in has not been set up yet. Please contact the website developer."
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "intro": "Product and business management tools will appear here."
+    }
+  }
+}

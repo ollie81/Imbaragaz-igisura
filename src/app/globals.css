@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens — Imbaraga z'Igisura
+ *
+ * Brand: GREEN (primary) · YELLOW/GOLD (accent) · WHITE (background).
+ * Use the semantic tokens (primary, accent, muted, border …) in components;
+ * reach for the raw scales (leaf-*, gold-*) only for illustration/decoration.
+ *
+ * Accessibility: gold is an accent/background colour. Do not put gold text on
+ * white (insufficient contrast); put dark text (leaf-950/foreground) on gold.
+ */
+@theme {
+  /* Primary: natural leaf green */
+  --color-leaf-50: #f1f8f2;
+  --color-leaf-100: #dcefdf;
+  --color-leaf-200: #bbdec2;
+  --color-leaf-300: #8ec69b;
+  --color-leaf-400: #5ea872;
+  --color-leaf-500: #3c8b53;
+  --color-leaf-600: #2c6f41;
+  --color-leaf-700: #245936;
+  --color-leaf-800: #1f472d;
+  --color-leaf-900: #1a3b26;
+  --color-leaf-950: #0d2115;
+
+  /* Accent: warm honey gold */
+  --color-gold-50: #fdf9ec;
+  --color-gold-100: #faefc9;
+  --color-gold-200: #f4dd8f;
+  --color-gold-300: #eec65a;
+  --color-gold-400: #e8b03a;
+  --color-gold-500: #d9951f;
+  --color-gold-600: #bd7317;
+  --color-gold-700: #9b5417;
+  --color-gold-800: #7f431a;
+  --color-gold-900: #69381a;
+  --color-gold-950: #3c1c0a;
+
+  /* Semantic tokens */
+  --color-background: #ffffff;
+  --color-foreground: #17231b;
+  --color-muted: #f6f7f2;
+  --color-muted-foreground: #56615a;
+  --color-border: #e3e7df;
+  --color-primary: var(--color-leaf-700);
+  --color-primary-hover: var(--color-leaf-800);
+  --color-primary-foreground: #ffffff;
+  --color-primary-soft: var(--color-leaf-50);
+  --color-accent: var(--color-gold-400);
+  --color-accent-hover: var(--color-gold-300);
+  --color-accent-foreground: var(--color-leaf-950);
+  --color-accent-soft: var(--color-gold-50);
+  --color-ring: var(--color-gold-500);
+
+  /* Typography (font variables are set by next/font in the root layout) */
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-heading), ui-serif, Georgia, serif;
+
+  /* Shape */
+  --radius-card: 1.25rem;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: var(--color-gold-200);
+    color: var(--color-leaf-950);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
