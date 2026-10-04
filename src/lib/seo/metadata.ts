@@ -39,6 +39,12 @@ export function buildPageMetadata({
   siteName = siteConfig.fallbackName,
   images,
 }: PageMetadataInput): Metadata {
+  // Page-level openGraph replaces the parent's, so reference the generated
+  // share image (src/app/[locale]/opengraph-image.tsx) explicitly.
+  const shareImages = images ?? [
+    { url: localizedPath(locale, "/opengraph-image"), width: 1200, height: 630, alt: siteName },
+  ];
+
   return {
     title,
     description,
@@ -53,12 +59,13 @@ export function buildPageMetadata({
       alternateLocale: locales
         .filter((l) => l !== locale)
         .map((l) => localeMeta[l].openGraphLocale),
-      images,
+      images: shareImages,
     },
     twitter: {
-      card: images?.length ? "summary_large_image" : "summary",
+      card: "summary_large_image",
       title: title ?? siteName,
       description,
+      images: shareImages,
     },
   };
 }

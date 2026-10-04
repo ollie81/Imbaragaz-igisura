@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
+import { businessDefaults } from "@/config/business-defaults";
 import { siteConfig } from "@/config/site";
 import { routing } from "@/i18n/routing";
 
@@ -31,7 +32,7 @@ export async function generateMetadata({ params }: Omit<Props, "children">): Pro
   return {
     metadataBase: new URL(siteConfig.url),
     title: { default: siteConfig.fallbackName, template: `%s | ${siteConfig.fallbackName}` },
-    description: t("description"),
+    description: t("description", { years: businessDefaults.experienceYears }),
     applicationName: siteConfig.fallbackName,
     formatDetection: { telephone: false },
   };
@@ -47,7 +48,8 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html lang={locale} className={`${body.variable} ${heading.variable}`}>
       <body className="flex min-h-dvh flex-col">
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        {/* Client components receive their text as props, so no message catalog is sent to the browser. */}
+        <NextIntlClientProvider messages={null}>{children}</NextIntlClientProvider>
       </body>
     </html>
   );

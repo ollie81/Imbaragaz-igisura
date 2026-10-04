@@ -1,21 +1,40 @@
 {
   "metadata": {
-    "description": "Imiti gakondo n'ibicuruzwa by'umwimerere i Musanze, mu Rwanda."
+    "title": "Imiti Gakondo n'Ibicuruzwa by'Umwimerere i Musanze",
+    "description": "Imbaraga z'Igisura itanga imiti gakondo n'ibicuruzwa by'umwimerere i Musanze, mu Rwanda, hafi ya Gare ya Musanze. Dufite uburambe bw'imyaka irenga {years}. Duhamagare cyangwa utwandikire kuri WhatsApp."
   },
   "common": {
     "skipToContent": "Jya ku bikubiye ku rupapuro",
     "language": "Ururimi",
     "home": "Ahabanza",
     "call": "Hamagara",
+    "callUs": "Duhamagare",
     "callNumber": "Hamagara {number}",
     "whatsapp": "WhatsApp",
+    "whatsappUs": "Twandikire kuri WhatsApp",
     "whatsappNumber": "Twandikire kuri WhatsApp: {number}",
+    "whatsappMessage": "Muraho {name}, nifuzaga amakuru ku bicuruzwa byanyu.",
+    "floatingWhatsapp": "Tuvugishe kuri WhatsApp",
+    "exploreProducts": "Reba ibicuruzwa",
+    "learnMore": "Menya byinshi",
     "contact": "Twandikire",
     "location": "Aho dukorera",
     "openingHours": "Amasaha y'akazi",
     "everyDay": "Buri munsi",
     "closed": "Hafunze",
-    "openOnMap": "Reba ku ikarita"
+    "openOnMap": "Reba ku ikarita",
+    "country": "Rwanda",
+    "opensInNewTab": "(birafungukira ahandi)"
+  },
+  "nav": {
+    "label": "Ibice by'urubuga",
+    "home": "Ahabanza",
+    "products": "Ibicuruzwa",
+    "about": "Abo turi bo",
+    "contact": "Twandikire",
+    "openMenu": "Fungura menu",
+    "closeMenu": "Funga menu",
+    "menu": "Menu"
   },
   "days": {
     "1": "Kuwa Mbere",
@@ -27,13 +46,121 @@
     "7": "Ku Cyumweru"
   },
   "footer": {
+    "tagline": "Imiti gakondo n'ibicuruzwa by'umwimerere",
+    "pages": "Paji",
     "rights": "Uburenganzira bwose burasigasiwe."
   },
   "home": {
-    "eyebrow": "Musanze, Rwanda",
-    "tagline": "Imiti gakondo n'ibicuruzwa by'umwimerere",
-    "intro": "Urubuga rwacu rushya ruri gutegurwa. Hagati aho, duhamagare cyangwa utwandikire kuri WhatsApp — twishimiye kugufasha.",
-    "visitUs": "Dusure"
+    "hero": {
+      "eyebrow": "Musanze, Rwanda",
+      "title": "Ubumenyi gakondo. Ibicuruzwa by'umwimerere. Imyaka irenga {years} y'icyizere.",
+      "description": "Menya imiti gakondo n'ibicuruzwa by'umwimerere dutanga, kandi utuvugishe ako kanya kuri WhatsApp cyangwa kuri telefoni. Twishimiye kugufasha kubona icyo ukeneye."
+    },
+    "highlights": {
+      "label": "Mu ncamake",
+      "experienceValue": "Imyaka {years}+",
+      "experienceLabel": "Y'uburambe",
+      "everyDay": "Buri munsi",
+      "contactValue": "Tuvugane ako kanya",
+      "contactLabel": "Telefoni cyangwa WhatsApp"
+    },
+    "products": {
+      "eyebrow": "Ibicuruzwa byacu",
+      "title": "Menya ibicuruzwa byacu",
+      "description": "Reba imiti gakondo n'ibicuruzwa by'umwimerere dutanga.",
+      "emptyTitle": "Ibicuruzwa byacu biraza hano vuba",
+      "emptyDescription": "Amakuru ku bicuruzwa, ingano zabyo n'ibiciro bizashyirwa hano. Hagati aho, twandikire tukubwire ibihari.",
+      "askOnWhatsapp": "Baza kuri WhatsApp"
+    },
+    "why": {
+      "eyebrow": "Impamvu watugana",
+      "title": "Kuki wahitamo Imbaraga z'Igisura?",
+      "experienceTitle": "Uburambe bw'imyaka irenga {years}",
+      "experienceText": "Tumaze imyaka irenga {years} dutanga imiti gakondo n'ibicuruzwa by'umwimerere.",
+      "naturalTitle": "Ibicuruzwa by'umwimerere",
+      "naturalText": "Imiti gakondo n'ibicuruzwa by'umwimerere, buri kimwe gifite amakuru asobanutse.",
+      "personalTitle": "Ubufasha bwihariye",
+      "personalText": "Uvugana natwe ubwacu. Dufata umwanya wo gusubiza ibibazo byawe ku bicuruzwa byacu.",
+      "visitTitle": "Dusure i Musanze",
+      "visitText": "Ngwino ku iduka ryacu tuganire imbonankubone."
+    },
+    "order": {
+      "eyebrow": "Uko bikorwa",
+      "title": "Uko wabona ibicuruzwa byacu",
+      "step1Title": "Reba ibicuruzwa",
+      "step1Text": "Reba ibicuruzwa byacu hano, cyangwa utubaze ibihari.",
+      "step2Title": "Tuvugishe",
+      "step2Text": "Twandikire kuri WhatsApp cyangwa uduhamagare. Tuzasubiza ibibazo byawe kandi twemeze ibyo utumije.",
+      "step3Title": "Dusure cyangwa tukoherereze",
+      "step3Text": "Fata ibyo watumije ku iduka ryacu i Musanze, cyangwa utubaze niba bishobora kukoherezwa.",
+      "deliveryTitle": "Ntabwo uri i Musanze?",
+      "deliveryText": "Bitewe n'aho uherereye n'ingano y'ibyo watumije, ibicuruzwa bishobora koherezwa mu modoka zitwara abagenzi ziva i Musanze zijya i Kigali cyangwa ahandi. Ni wowe wifatira ipaki igihe igeze.",
+      "deliveryNote": "Banza utwandikire tumenye niba bishoboka aho uri. Uburyo bwo kohereza, igihe n'ikiguzi tubyumvikanaho nawe."
+    },
+    "info": {
+      "eyebrow": "Amakuru ku bicuruzwa",
+      "title": "Menya neza icyo ugura",
+      "description": "Buri gicuruzwa kizagira paji igaragaza amakuru ahari kuri cyo, kugira ngo uhitemo ufite amakuru ahagije.",
+      "name": "Izina ry'igicuruzwa",
+      "productDescription": "Ibisobanuro",
+      "traditionalUse": "Uko gikoreshwa mu buryo gakondo",
+      "usage": "Uko gikoreshwa",
+      "sizes": "Ingano ziboneka",
+      "price": "Igiciro",
+      "origin": "Aho gikomoka",
+      "warnings": "Ibyo kwitondera",
+      "noteTitle": "Icyo ukwiye kumenya",
+      "note": "Amakuru ku mikoreshereze gakondo ashingiye ku bumenyi gakondo n'uburambe bwacu. Ntabwo ari isuzuma rya muganga cyangwa isezerano ry'umusaruro. Niba utwite, ufata indi miti cyangwa ufite ikibazo cy'ubuzima, banza ugishe inama umuganga."
+    },
+    "about": {
+      "eyebrow": "Abo turi bo",
+      "title": "Ubucuruzi bw'umuryango i Musanze",
+      "text1": "Imbaraga z'Igisura itanga imiti gakondo n'ibicuruzwa by'umwimerere i Musanze, mu Rwanda.",
+      "text2": "Mu myaka irenga {years}, twiyemeje gufasha buri mukiriya gusobanukirwa n'ibicuruzwa tumuha: icyo ari cyo, uko bikoreshwa mu buryo gakondo n'uko yabikoresha."
+    },
+    "contact": {
+      "title": "Ufite ikibazo?",
+      "description": "Tuvugishe ako kanya, tugufashe kubona amakuru ukeneye.",
+      "alsoWhatsapp": "Na WhatsApp: {number}"
+    },
+    "location": {
+      "eyebrow": "Dusure",
+      "title": "Aho turi n'amasaha y'akazi",
+      "address": "Aderesi",
+      "getDirections": "Erekwa inzira",
+      "directionsNote": "Ikarita igaragaza Gare ya Musanze. Iduka ryacu riri hafi yayo."
+    },
+    "final": {
+      "title": "Wifuza kumenya byinshi?",
+      "description": "Reba ibicuruzwa byacu cyangwa uvugane na {name} ako kanya."
+    }
+  },
+  "product": {
+    "viewDetails": "Reba ibisobanuro",
+    "viewDetailsOf": "Reba ibisobanuro: {name}",
+    "featured": "Byatoranyijwe",
+    "priceOnRequest": "Baza igiciro",
+    "sizeLabel": "Ingano",
+    "availabilityLabel": "Uko bihagaze",
+    "moreSizes": "{count, plural, one {+ingano # yindi} other {+ingano # zindi}}",
+    "availability": {
+      "in_stock": "Birahari",
+      "low_stock": "Bisigaye bike",
+      "out_of_stock": "Byashize",
+      "on_request": "Biboneka ubisabye"
+    },
+    "units": {
+      "ml": "ml",
+      "l": "L",
+      "g": "g",
+      "kg": "kg",
+      "piece": "igice",
+      "pack": "paki"
+    }
+  },
+  "about": {
+    "metaTitle": "Abo turi bo",
+    "metaDescription": "Imbaraga z'Igisura: imiti gakondo n'ibicuruzwa by'umwimerere i Musanze, mu Rwanda, dufite uburambe bw'imyaka irenga {years}."
   },
   "notFound": {
     "title": "Uru rupapuro ntirwabonetse",

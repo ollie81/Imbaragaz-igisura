@@ -5,7 +5,7 @@ import { locales } from "@/i18n/config";
 import { localizedPath } from "@/lib/seo/metadata";
 
 /** Public, indexable paths (without locale). Product pages will be added from the database. */
-const staticPaths = ["/"];
+const staticPaths = ["/", "/about"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return staticPaths.flatMap((path) =>

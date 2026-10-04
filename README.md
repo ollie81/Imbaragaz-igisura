@@ -48,12 +48,12 @@ on UI before the database exists.
 
 ## Environment variables
 
-| Variable                               | Where           | Purpose                                                                     |
-| -------------------------------------- | --------------- | --------------------------------------------------------------------------- |
-| `NEXT_PUBLIC_SITE_URL`                 | browser+server  | Public site URL (canonical URLs, sitemap, Open Graph, QR codes)             |
-| `NEXT_PUBLIC_SUPABASE_URL`             | browser+server  | Supabase project URL                                                        |
-| `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | browser+server  | Supabase publishable (or legacy anon) key — safe, RLS-restricted            |
-| `SUPABASE_SECRET_KEY`                  | **server only** | Supabase secret (or legacy service_role) key — bypasses RLS. Not needed yet |
+| Variable                               | Where           | Purpose                                                                                                         |
+| -------------------------------------- | --------------- | --------------------------------------------------------------------------------------------------------------- |
+| `NEXT_PUBLIC_SITE_URL`                 | browser+server  | Public site URL (canonical URLs, sitemap, Open Graph, QR codes). On Vercel it defaults to the production domain |
+| `NEXT_PUBLIC_SUPABASE_URL`             | browser+server  | Supabase project URL                                                                                            |
+| `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | browser+server  | Supabase publishable (or legacy anon) key — safe, RLS-restricted                                                |
+| `SUPABASE_SECRET_KEY`                  | **server only** | Supabase secret (or legacy service_role) key — bypasses RLS. Not needed yet                                     |
 
 Never prefix the secret key with `NEXT_PUBLIC_` and never commit `.env.local`.
 
@@ -99,7 +99,9 @@ supabase/
 
 - **Data from the database, not the code.** Components never contain products, prices, images or
   business facts. `src/server/*` loads them; components receive them as props. If the database is
-  unavailable, sections are hidden rather than filled with guesses.
+  unavailable, business info falls back to the verified facts in `src/config/business-defaults.ts`
+  (so QR-code visitors always get correct contact details), and product sections show an honest
+  "coming soon" state, never guesses.
 - **Public pages are static.** They read through a cookie-less Supabase client, so they can be
   prerendered and cached (fast on slow mobile connections). Only admin routes touch the session.
 - **Language in the URL** (`/rw/…`, `/en/…`, `localePrefix: "always"`): unambiguous for search
@@ -113,13 +115,14 @@ supabase/
 
 Migrations in `supabase/migrations/`:
 
-| File                                | Contents                                                                                                                                       |
-| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| `…000100_foundation.sql`            | `locales`, `admins`, `private.is_admin()` / `private.has_admin_role()`, updated_at trigger                                                     |
-| `…000200_catalog.sql`               | `product_categories` (+translations), `products` (+translations), `product_variants` (size + price), `product_images` (+alt text translations) |
-| `…000300_business.sql`              | `business_settings` (single row) + translations, `business_contacts`, `business_hours`                                                         |
-| `…000400_storage.sql`               | Public buckets `product-images`, `site-media` (5 MB, images only) + write policies                                                             |
-| `…000500_initial_business_data.sql` | Only the facts provided by the business: name, location, phones, WhatsApp, hours                                                               |
+| File                                     | Contents                                                                                                                                       |
+| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `…000100_foundation.sql`                 | `locales`, `admins`, `private.is_admin()` / `private.has_admin_role()`, updated_at trigger                                                     |
+| `…000200_catalog.sql`                    | `product_categories` (+translations), `products` (+translations), `product_variants` (size + price), `product_images` (+alt text translations) |
+| `…000300_business.sql`                   | `business_settings` (single row) + translations, `business_contacts`, `business_hours`                                                         |
+| `…000400_storage.sql`                    | Public buckets `product-images`, `site-media` (5 MB, images only) + write policies                                                             |
+| `…000500_initial_business_data.sql`      | Only the facts provided by the business: name, location, phones, WhatsApp, hours                                                               |
+| `20261005000100_business_experience.sql` | `business_settings.experience_years` (shown as "20+ years")                                                                                    |
 
 Design notes:
 

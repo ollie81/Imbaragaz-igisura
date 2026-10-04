@@ -6,9 +6,24 @@ export type OpeningInterval = {
   isClosed: boolean;
 };
 
-/** "06:00:00" → "06:00" */
+/** "06:00:00" → "06:00" (machine format, e.g. for <time dateTime> and JSON-LD). */
 export function formatTime(time: string): string {
   return time.slice(0, 5);
+}
+
+/**
+ * Human-readable time for a language: 12-hour where that is customary
+ * ("6:00 AM" in English), otherwise 24-hour ("06:00"). The 24-hour clock is
+ * used for Kinyarwanda because it is unambiguous on signs and printed cards.
+ */
+export function formatTimeForLocale(time: string, locale: string, hour12: boolean): string {
+  const [h, m] = time.split(":").map(Number);
+  return new Intl.DateTimeFormat(locale, {
+    hour: hour12 ? "numeric" : "2-digit",
+    minute: "2-digit",
+    hour12,
+    timeZone: "UTC",
+  }).format(Date.UTC(1970, 0, 1, h, m));
 }
 
 /**

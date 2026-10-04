@@ -14,6 +14,8 @@ Read `README.md` (Architecture section) before changing code. Non-negotiables:
 
 - **No hard-coded business data.** Products, prices, images, contacts, hours, address and
   descriptions come from Supabase. Never invent products, prices, testimonials or business facts.
+  The only exception is `src/config/business-defaults.ts`: verified facts used as a fallback when the
+  database is unavailable (keep it in sync with the seed migrations; never add unconfirmed data).
 - **No medical claims.** Product health information is stored only as `traditional_use` and must be
   presented as traditional use, never as a verified medical effect.
 - **No hard-coded UI text.** All user-facing strings go in `src/messages/*.json` (English is the

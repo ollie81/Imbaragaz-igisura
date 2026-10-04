@@ -118,6 +118,7 @@ export type Database = {
           timezone: string;
           default_currency: string;
           founded_year: number | null;
+          experience_years: number | null;
           updated_by: string | null;
           created_at: string;
           updated_at: string;
@@ -134,6 +135,7 @@ export type Database = {
           timezone?: string;
           default_currency?: string;
           founded_year?: number | null;
+          experience_years?: number | null;
           updated_by?: string | null;
           created_at?: string;
           updated_at?: string;
@@ -150,6 +152,7 @@ export type Database = {
           timezone?: string;
           default_currency?: string;
           founded_year?: number | null;
+          experience_years?: number | null;
           updated_by?: string | null;
           created_at?: string;
           updated_at?: string;

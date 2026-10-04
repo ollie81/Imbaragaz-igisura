@@ -15,11 +15,17 @@ const SCHEMA_DAYS = [
 ] as const;
 
 /**
- * schema.org LocalBusiness built ONLY from database values — nothing is
- * added that the business has not confirmed.
+ * schema.org LocalBusiness built ONLY from confirmed business data. No
+ * ratings, reviews, prices, coordinates or social profiles are added unless
+ * they exist in the database.
  */
-export function localBusinessJsonLd(business: BusinessInfo, locale: AppLocale) {
+export function localBusinessJsonLd(
+  business: BusinessInfo,
+  locale: AppLocale,
+  options: { description?: string } = {},
+) {
   const url = `${siteConfig.url}${localizedPath(locale, "/")}`;
+  const open = business.hours.filter((h) => !h.isClosed && h.opensAt && h.closesAt);
 
   return {
     "@context": "https://schema.org",
@@ -27,8 +33,14 @@ export function localBusinessJsonLd(business: BusinessInfo, locale: AppLocale) {
     "@id": `${siteConfig.url}/#business`,
     name: business.name,
     url,
-    description: business.tagline ?? undefined,
+    inLanguage: locale,
+    description: business.tagline ?? options.description,
     telephone: business.phones[0]?.value,
+    contactPoint: business.phones.map((p) => ({
+      "@type": "ContactPoint",
+      telephone: p.value,
+      contactType: "customer service",
+    })),
     address: {
       "@type": "PostalAddress",
       streetAddress: business.address ?? undefined,
@@ -40,13 +52,13 @@ export function localBusinessJsonLd(business: BusinessInfo, locale: AppLocale) {
         ? { "@type": "GeoCoordinates", latitude: business.latitude, longitude: business.longitude }
         : undefined,
     hasMap: business.googleMapsUrl ?? undefined,
-    openingHoursSpecification: business.hours
-      .filter((h) => !h.isClosed && h.opensAt && h.closesAt)
-      .map((h) => ({
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: `https://schema.org/${SCHEMA_DAYS[h.dayOfWeek - 1]}`,
-        opens: formatTime(h.opensAt!),
-        closes: formatTime(h.closesAt!),
-      })),
+    openingHoursSpecification: open.length
+      ? open.map((h) => ({
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: `https://schema.org/${SCHEMA_DAYS[h.dayOfWeek - 1]}`,
+          opens: formatTime(h.opensAt!),
+          closes: formatTime(h.closesAt!),
+        }))
+      : undefined,
   };
 }

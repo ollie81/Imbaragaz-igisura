@@ -12,7 +12,10 @@ export type AppLocale = (typeof locales)[number];
 
 export const defaultLocale: AppLocale = "rw";
 
-export const localeMeta: Record<AppLocale, { nativeName: string; openGraphLocale: string }> = {
-  rw: { nativeName: "Ikinyarwanda", openGraphLocale: "rw_RW" },
-  en: { nativeName: "English", openGraphLocale: "en_US" },
+export const localeMeta: Record<
+  AppLocale,
+  { nativeName: string; openGraphLocale: string; hour12: boolean }
+> = {
+  rw: { nativeName: "Ikinyarwanda", openGraphLocale: "rw_RW", hour12: false },
+  en: { nativeName: "English", openGraphLocale: "en_US", hour12: true },
 };

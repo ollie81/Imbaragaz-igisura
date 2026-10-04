@@ -1,21 +1,40 @@
 {
   "metadata": {
-    "description": "Traditional medicine and natural products in Musanze, Rwanda."
+    "title": "Traditional Medicine & Natural Products in Musanze",
+    "description": "Imbaraga z'Igisura offers traditional medicine and natural products in Musanze, Rwanda, near Musanze Bus Station. More than {years} years of experience. Call or WhatsApp us."
   },
   "common": {
     "skipToContent": "Skip to main content",
     "language": "Language",
     "home": "Home",
     "call": "Call",
+    "callUs": "Call us",
     "callNumber": "Call {number}",
     "whatsapp": "WhatsApp",
+    "whatsappUs": "WhatsApp us",
     "whatsappNumber": "Chat on WhatsApp: {number}",
+    "whatsappMessage": "Hello {name}, I would like some information about your products.",
+    "floatingWhatsapp": "Chat with us on WhatsApp",
+    "exploreProducts": "Explore products",
+    "learnMore": "Learn more",
     "contact": "Contact",
     "location": "Location",
     "openingHours": "Opening hours",
     "everyDay": "Every day",
     "closed": "Closed",
-    "openOnMap": "Open in maps"
+    "openOnMap": "Open in maps",
+    "country": "Rwanda",
+    "opensInNewTab": "(opens in a new tab)"
+  },
+  "nav": {
+    "label": "Main navigation",
+    "home": "Home",
+    "products": "Products",
+    "about": "About",
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "menu": "Menu"
   },
   "days": {
     "1": "Monday",
@@ -27,13 +46,121 @@
     "7": "Sunday"
   },
   "footer": {
+    "tagline": "Traditional medicine and natural products",
+    "pages": "Pages",
     "rights": "All rights reserved."
   },
   "home": {
-    "eyebrow": "Musanze, Rwanda",
-    "tagline": "Traditional medicine and natural products",
-    "intro": "Our new website is being prepared. In the meantime, call us or send us a WhatsApp message — we are happy to help.",
-    "visitUs": "Visit us"
+    "hero": {
+      "eyebrow": "Musanze, Rwanda",
+      "title": "Traditional knowledge. Natural products. Trusted for over {years} years.",
+      "description": "Explore our traditional medicine and natural products, and contact us directly by WhatsApp or phone. We are happy to help you find what you are looking for."
+    },
+    "highlights": {
+      "label": "At a glance",
+      "experienceValue": "{years}+ years",
+      "experienceLabel": "Experience",
+      "everyDay": "Every day",
+      "contactValue": "Direct contact",
+      "contactLabel": "Call or WhatsApp"
+    },
+    "products": {
+      "eyebrow": "Our products",
+      "title": "Explore our products",
+      "description": "Discover our selection of traditional medicine and natural products.",
+      "emptyTitle": "Our products will be available here soon",
+      "emptyDescription": "Product information, sizes and prices will be added here. In the meantime, contact us and we will gladly tell you what is available.",
+      "askOnWhatsapp": "Ask on WhatsApp"
+    },
+    "why": {
+      "eyebrow": "Why choose us",
+      "title": "Why choose Imbaraga z'Igisura",
+      "experienceTitle": "More than {years} years of experience",
+      "experienceText": "We have been providing traditional medicine and natural products for more than {years} years.",
+      "naturalTitle": "Natural products",
+      "naturalText": "A selection of traditional medicine and natural products, with clear information about each one.",
+      "personalTitle": "Direct, personal help",
+      "personalText": "You speak with us directly. We take the time to answer your questions about our products.",
+      "visitTitle": "Visit us in Musanze",
+      "visitText": "Come to our shop and speak with us in person."
+    },
+    "order": {
+      "eyebrow": "How it works",
+      "title": "How to get our products",
+      "step1Title": "Explore the products",
+      "step1Text": "Look through our products here, or ask us what is available.",
+      "step2Title": "Contact us",
+      "step2Text": "Send us a WhatsApp message or call us. We will answer your questions and confirm your order.",
+      "step3Title": "Visit us or arrange sending",
+      "step3Text": "Collect your order at our shop in Musanze, or ask us whether it can be sent to you.",
+      "deliveryTitle": "Not in Musanze?",
+      "deliveryText": "Depending on your location and the size of your order, products may be sent with buses travelling from Musanze to Kigali or other destinations. You collect the package yourself when it arrives.",
+      "deliveryNote": "Please contact us first to check what is possible for your location. Sending options, timing and any costs are agreed directly with you."
+    },
+    "info": {
+      "eyebrow": "Product information",
+      "title": "Know what you are buying",
+      "description": "Each product page will share the information available for that product, so you can choose with confidence.",
+      "name": "Product name",
+      "productDescription": "Description",
+      "traditionalUse": "Traditional uses",
+      "usage": "How it is used",
+      "sizes": "Available sizes",
+      "price": "Price",
+      "origin": "Origin",
+      "warnings": "Warnings and important notes",
+      "noteTitle": "Good to know",
+      "note": "Information about traditional uses comes from traditional knowledge and our experience. It is not a medical diagnosis or a promise of results. If you are pregnant, taking other medicine or have a health condition, please ask a health professional for advice."
+    },
+    "about": {
+      "eyebrow": "About us",
+      "title": "A family business in Musanze",
+      "text1": "Imbaraga z'Igisura provides traditional medicine and natural products in Musanze, Rwanda.",
+      "text2": "For more than {years} years, we have been committed to helping every customer understand the products we offer: what they are, how they are traditionally used and how to use them."
+    },
+    "contact": {
+      "title": "Have a question?",
+      "description": "Contact us directly and we'll help you find the information you need.",
+      "alsoWhatsapp": "Also on WhatsApp: {number}"
+    },
+    "location": {
+      "eyebrow": "Visit us",
+      "title": "Location and opening hours",
+      "address": "Address",
+      "getDirections": "Get directions",
+      "directionsNote": "The map shows Musanze Bus Station. Our shop is nearby."
+    },
+    "final": {
+      "title": "Ready to learn more?",
+      "description": "Explore our products or contact {name} directly."
+    }
+  },
+  "product": {
+    "viewDetails": "View details",
+    "viewDetailsOf": "View details: {name}",
+    "featured": "Featured",
+    "priceOnRequest": "Price on request",
+    "sizeLabel": "Size",
+    "availabilityLabel": "Availability",
+    "moreSizes": "{count, plural, one {+# more size} other {+# more sizes}}",
+    "availability": {
+      "in_stock": "Available",
+      "low_stock": "Limited stock",
+      "out_of_stock": "Out of stock",
+      "on_request": "On request"
+    },
+    "units": {
+      "ml": "ml",
+      "l": "L",
+      "g": "g",
+      "kg": "kg",
+      "piece": "pc",
+      "pack": "pack"
+    }
+  },
+  "about": {
+    "metaTitle": "About us",
+    "metaDescription": "Imbaraga z'Igisura: traditional medicine and natural products in Musanze, Rwanda, with more than {years} years of experience."
   },
   "notFound": {
     "title": "Page not found",
