@@ -111,7 +111,7 @@
       "origin": "Origin",
       "warnings": "Warnings and important notes",
       "noteTitle": "Good to know",
-      "note": "Information about how products are used comes from our experience. It is not a medical diagnosis or a promise of results. If you are pregnant, under a doctor's care or have a health condition, please ask a health professional for advice."
+      "note": "Information about how products are used comes from our experience. If you are pregnant, under a doctor's care or have a health condition, please ask a health professional before use."
     },
     "about": {
       "eyebrow": "About us",
@@ -406,14 +406,13 @@
     "ingredients": "Ingredients",
     "origin": "Origin",
     "traditionalUse": "How it is commonly used",
-    "traditionalUseNote": "This describes how it is commonly used. It is not a medically proven effect.",
     "usage": "How to use",
     "warnings": "Warnings and important notes",
     "storage": "Storage",
     "askTitle": "Interested in {name}?",
     "askText": "Send us a WhatsApp message. The name and link of this page are added for you.",
     "translationNote": "Information for this product is not yet available in English.",
-    "healthNote": "Information about how a product is used is not a medical diagnosis or a promise of results. If you are pregnant, under a doctor's care or have a health condition, please ask a health professional first.",
+    "healthNote": "If you are pregnant, under a doctor's care or have a health condition, please ask a health professional before use.",
     "backToProducts": "All products",
     "notFoundTitle": "Product not found",
     "notFoundText": "This product does not exist or is no longer available.",

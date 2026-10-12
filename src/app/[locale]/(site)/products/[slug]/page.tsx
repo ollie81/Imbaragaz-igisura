@@ -301,11 +301,7 @@ export default async function ProductPage({ params }: Props) {
           )}
           {product.traditionalUse && (
             <InfoSection title={t("productPage.traditionalUse")}>
-              <p>{product.traditionalUse}</p>
-              <p className="mt-3 flex gap-2 text-sm text-muted-foreground">
-                <InfoIcon className="mt-0.5 size-4 shrink-0" />
-                {t("productPage.traditionalUseNote")}
-              </p>
+              {product.traditionalUse}
             </InfoSection>
           )}
           {product.usageInstructions && (

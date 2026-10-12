@@ -191,9 +191,9 @@ Sign in at `/rw/admin/login` (or `/en/admin/login`). Only accounts listed in `pu
 - **Products → open a draft** (41 drafts were created from the shop signs) or **New product**.
 - Fill in the name and information in Kinyarwanda and/or English. A draft can be saved with one
   language; the public site shows the other language until a translation exists.
-- **How it is commonly used** (stored as `traditional_use`) is always shown with a note that it is
-  not a medically proven effect. Never enter cures, disease-treatment claims, invented origins or
-  ingredients. Describe products as natural; avoid "medicine"/"imiti" and "traditional"/"gakondo".
+- **How it is commonly used** (stored as `traditional_use`): never enter cures, disease-treatment
+  claims, invented origins or ingredients. Describe products as natural; avoid "medicine"/"imiti"
+  and "traditional"/"gakondo".
 - **Photos**: real photos only. They are resized in the browser (max 1600 px, WebP), which also
   strips camera metadata such as GPS location, then uploaded to the `product-images` bucket. The
   first photo becomes the main photo; any photo can be made main; add a short description for

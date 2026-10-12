@@ -111,7 +111,7 @@
       "origin": "Aho gikomoka",
       "warnings": "Ibyo kwitondera",
       "noteTitle": "Icyo ukwiye kumenya",
-      "note": "Amakuru ku mikoreshereze ashingiye ku burambe bwacu. Ntabwo ari isuzuma rya muganga cyangwa isezerano ry'umusaruro. Niba utwite, ukurikiranwa na muganga cyangwa ufite ikibazo cy'ubuzima, banza ugishe inama umuganga."
+      "note": "Amakuru ku mikoreshereze ashingiye ku burambe bwacu. Niba utwite, ukurikiranwa na muganga cyangwa ufite ikibazo cy'ubuzima, banza ugishe inama umuganga mbere yo kubikoresha."
     },
     "about": {
       "eyebrow": "Abo turi bo",
@@ -406,14 +406,13 @@
     "ingredients": "Ibigize",
     "origin": "Aho gikomoka",
     "traditionalUse": "Uko bikunze gukoreshwa",
-    "traditionalUseNote": "Ibi bisobanura uko bikunze gukoreshwa. Si umusaruro wemejwe n'ubuvuzi.",
     "usage": "Uko gikoreshwa",
     "warnings": "Ibyo kwitondera",
     "storage": "Uko kibikwa",
     "askTitle": "Ushishikajwe na {name}?",
     "askText": "Twandikire kuri WhatsApp. Izina n'umurongo w'iyi paji byongerwamo ubwabyo.",
     "translationNote": "Amakuru y'iki kintu ntaraboneka mu Kinyarwanda.",
-    "healthNote": "Amakuru ku mikoreshereze si isuzuma rya muganga cyangwa isezerano ry'umusaruro. Niba utwite, ukurikiranwa na muganga cyangwa ufite ikibazo cy'ubuzima, banza ugishe inama umuganga.",
+    "healthNote": "Niba utwite, ukurikiranwa na muganga cyangwa ufite ikibazo cy'ubuzima, banza ugishe inama umuganga mbere yo kubikoresha.",
     "backToProducts": "Reba ibyo dutanga byose",
     "notFoundTitle": "Ntitwabonye ibyo ushaka",
     "notFoundText": "Ibi ntibibaho cyangwa ntibikiboneka.",
