@@ -118,10 +118,10 @@ export type Database = {
           timezone: string;
           default_currency: string;
           founded_year: number | null;
-          experience_years: number | null;
           updated_by: string | null;
           created_at: string;
           updated_at: string;
+          experience_years: number | null;
         };
         Insert: {
           id?: number;
@@ -135,10 +135,10 @@ export type Database = {
           timezone?: string;
           default_currency?: string;
           founded_year?: number | null;
-          experience_years?: number | null;
           updated_by?: string | null;
           created_at?: string;
           updated_at?: string;
+          experience_years?: number | null;
         };
         Update: {
           id?: number;
@@ -152,10 +152,10 @@ export type Database = {
           timezone?: string;
           default_currency?: string;
           founded_year?: number | null;
-          experience_years?: number | null;
           updated_by?: string | null;
           created_at?: string;
           updated_at?: string;
+          experience_years?: number | null;
         };
         Relationships: [];
       };
@@ -412,6 +412,8 @@ export type Database = {
           seo_description: string | null;
           created_at: string;
           updated_at: string;
+          ingredients: string | null;
+          storage_instructions: string | null;
         };
         Insert: {
           product_id: string;
@@ -427,6 +429,8 @@ export type Database = {
           seo_description?: string | null;
           created_at?: string;
           updated_at?: string;
+          ingredients?: string | null;
+          storage_instructions?: string | null;
         };
         Update: {
           product_id?: string;
@@ -442,6 +446,8 @@ export type Database = {
           seo_description?: string | null;
           created_at?: string;
           updated_at?: string;
+          ingredients?: string | null;
+          storage_instructions?: string | null;
         };
         Relationships: [
           {
@@ -522,7 +528,7 @@ export type Database = {
           slug: string;
           category_id: string | null;
           status: string;
-          availability: string;
+          availability: string | null;
           is_featured: boolean;
           display_order: number;
           published_at: string | null;
@@ -537,7 +543,7 @@ export type Database = {
           slug: string;
           category_id?: string | null;
           status?: string;
-          availability?: string;
+          availability?: string | null;
           is_featured?: boolean;
           display_order?: number;
           published_at?: string | null;
@@ -552,7 +558,7 @@ export type Database = {
           slug?: string;
           category_id?: string | null;
           status?: string;
-          availability?: string;
+          availability?: string | null;
           is_featured?: boolean;
           display_order?: number;
           published_at?: string | null;

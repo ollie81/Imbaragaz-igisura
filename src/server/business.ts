@@ -5,6 +5,7 @@ import { cache } from "react";
 import { businessDefaults } from "@/config/business-defaults";
 import { isSupabaseConfigured } from "@/config/env";
 import { defaultLocale, type AppLocale } from "@/i18n/config";
+import { pickTranslation } from "@/lib/i18n/content";
 import { createSupabasePublicClient } from "@/lib/supabase/public";
 import type { OpeningInterval } from "@/lib/utils/hours";
 import type { Tables } from "@/types/database";
@@ -35,16 +36,6 @@ export type BusinessInfo = {
   /** "database" when loaded from Supabase, "defaults" when using verified fallbacks. */
   source: "database" | "defaults";
 };
-
-/** Picks the requested language, falling back to the default, then to any. */
-function pickTranslation<T extends { locale: string }>(rows: T[], locale: AppLocale): T | null {
-  return (
-    rows.find((r) => r.locale === locale) ??
-    rows.find((r) => r.locale === defaultLocale) ??
-    rows[0] ??
-    null
-  );
-}
 
 function toContacts(type: "phone" | "whatsapp", values: readonly string[]): BusinessContact[] {
   return values.map((value, i) => ({

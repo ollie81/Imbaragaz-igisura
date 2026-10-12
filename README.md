@@ -2,9 +2,9 @@
 
 Website for **Imbaraga z'Igisura** — traditional medicine and natural products, Musanze (Rwanda).
 
-This repository currently contains the **technical foundation** only: project setup, design system,
-internationalization, Supabase integration, database schema with security policies, and a temporary
-contact holding page. Product pages and the admin tools are built next.
+Bilingual (Kinyarwanda / English) website with a home page, a searchable product catalogue with
+product detail pages, an About page, and a secure admin dashboard where the business manages products,
+photos, sizes, prices and categories. Online ordering and payments are intentionally not included.
 
 ## Tech stack
 
@@ -65,9 +65,11 @@ src/
 │  ├─ [locale]/               Every page lives under /rw/… or /en/…
 │  │  ├─ layout.tsx           <html lang>, fonts, i18n provider, base metadata
 │  │  ├─ (site)/              PUBLIC website (header + footer); statically rendered, revalidated every 5 min
+│  │  │  ├─ products/(list)/  Products page: search, category filter, pagination (+ loading/error states)
+│  │  │  └─ products/[slug]/  Product detail (cached; 404 for unknown/unpublished products)
 │  │  ├─ admin/               ADMIN dashboard (noindex)
-│  │  │  ├─ login/            Sign-in (placeholder until the sign-in method is chosen)
-│  │  │  └─ (dashboard)/      Protected area — layout + every page call requireAdmin()
+│  │  │  ├─ login/            Email + password sign-in (Supabase Auth); admins only
+│  │  │  └─ (dashboard)/      Protected: dashboard, products (list/new/edit), categories
 │  │  ├─ [...rest]/           Localized 404 for unknown paths
 │  │  └─ not-found.tsx
 │  ├─ robots.ts, sitemap.ts
@@ -76,9 +78,13 @@ src/
 │  ├─ ui/                     Generic primitives: Button, Card, Container, Section, icons
 │  ├─ layout/                 Site header/footer, language switcher, skip link
 │  ├─ business/               Business-aware components (contact buttons, opening hours)
+│  ├─ products/               ProductCard, ProductGrid, ProductGallery, price/size formatting
+│  ├─ catalog/                Products page parts: search, category chips, pagination, states
+│  ├─ admin/                  Admin forms (client): product editor, sizes, photo uploader, categories
 │  └─ seo/                    JSON-LD renderer
-├─ server/                    Data access + business logic (server-only). One module per domain
-│                             (business.ts now; products.ts, orders.ts … later)
+├─ server/                    Data access + business logic (server-only). One module per domain:
+│                             business.ts, products.ts (public catalogue), admin/ (admin reads,
+│                             server actions, validation, authorization guard)
 ├─ lib/
 │  ├─ supabase/               Supabase clients: public (cacheable), server (session), browser,
 │  │                          service-role (server-only, bypasses RLS), proxy (session refresh)
@@ -115,14 +121,16 @@ supabase/
 
 Migrations in `supabase/migrations/`:
 
-| File                                     | Contents                                                                                                                                       |
-| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| `…000100_foundation.sql`                 | `locales`, `admins`, `private.is_admin()` / `private.has_admin_role()`, updated_at trigger                                                     |
-| `…000200_catalog.sql`                    | `product_categories` (+translations), `products` (+translations), `product_variants` (size + price), `product_images` (+alt text translations) |
-| `…000300_business.sql`                   | `business_settings` (single row) + translations, `business_contacts`, `business_hours`                                                         |
-| `…000400_storage.sql`                    | Public buckets `product-images`, `site-media` (5 MB, images only) + write policies                                                             |
-| `…000500_initial_business_data.sql`      | Only the facts provided by the business: name, location, phones, WhatsApp, hours                                                               |
-| `20261005000100_business_experience.sql` | `business_settings.experience_years` (shown as "20+ years")                                                                                    |
+| File                                                | Contents                                                                                                                                       |
+| --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `…000100_foundation.sql`                            | `locales`, `admins`, `private.is_admin()` / `private.has_admin_role()`, updated_at trigger                                                     |
+| `…000200_catalog.sql`                               | `product_categories` (+translations), `products` (+translations), `product_variants` (size + price), `product_images` (+alt text translations) |
+| `…000300_business.sql`                              | `business_settings` (single row) + translations, `business_contacts`, `business_hours`                                                         |
+| `…000400_storage.sql`                               | Public buckets `product-images`, `site-media` (5 MB, images only) + write policies                                                             |
+| `…000500_initial_business_data.sql`                 | Only the facts provided by the business: name, location, phones, WhatsApp, hours                                                               |
+| `20261005000100_business_experience.sql`            | `business_settings.experience_years` (shown as "20+ years")                                                                                    |
+| `20261011000100_catalog_extensions.sql`             | Product `ingredients` + `storage_instructions`; availability becomes optional (never assumed); 12 suggested categories                         |
+| `20261011000200_draft_products_from_shop_signs.sql` | 41 **draft** products named on the shop signs — names only, no prices/sizes/claims; hidden until published                                     |
 
 Design notes:
 
@@ -162,15 +170,37 @@ Design notes:
    `npx supabase db push`. Then `npm run db:types`.
 4. Authentication → Sign In / Providers: **disable "Allow new users to sign up"**; set the site URL
    and redirect URLs to the production domain.
-5. Create the business manager's account (Authentication → Users → _Invite user_, using their email),
-   then grant access in the SQL editor:
+5. Create the business manager's account **together with them**: Authentication → Users →
+   **Add user → Create new user**, enter their email, let them type their own password (at least 12
+   characters, upper- and lowercase letters and digits), and tick **Auto Confirm User**.
+   (Do not use "Invite user" yet: the site has no set-password page, so the invitation link
+   cannot be completed.) Then grant access in the SQL editor:
 
    ```sql
    insert into public.admins (user_id, full_name, role)
    select id, 'Niyomugaba Patrick', 'owner' from auth.users where email = '<email>';
    ```
 
-   No password is created by us; they set it themselves from the invitation email.
+   No password is created or stored by the developers.
+
+## Managing products (admin)
+
+Sign in at `/rw/admin/login` (or `/en/admin/login`). Only accounts listed in `public.admins` get in.
+
+- **Products → open a draft** (41 drafts were created from the shop signs) or **New product**.
+- Fill in the name and information in Kinyarwanda and/or English. A draft can be saved with one
+  language; the public site shows the other language until a translation exists.
+- **Traditional use** is always shown with a note that it is not a medically proven effect. Never
+  enter cures, disease-treatment claims, invented origins or ingredients.
+- **Photos**: real photos only. They are resized in the browser (max 1600 px, WebP), which also
+  strips camera metadata such as GPS location, then uploaded to the `product-images` bucket. The
+  first photo becomes the main photo; any photo can be made main; add a short description for
+  visually impaired visitors.
+- **Sizes and prices**: one row per size. An empty price is shown as "Price on request" (never 0).
+- **Availability** is hidden unless set — leave it on "Not shown" unless it is kept up to date.
+- Set **Status → Published** and save. Public pages refresh immediately.
+- **Categories**: create, rename (both languages), hide, reorder (↑/↓) and delete. Only categories
+  with published products appear as filters on the website.
 
 ## Conventions
 

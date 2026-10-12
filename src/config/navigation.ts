@@ -1,12 +1,12 @@
 /**
  * Site navigation, shared by the header, mobile menu and footer.
  *
- * Products and Contact point to home-page sections until their own pages
- * exist; change the href here and every menu updates.
+ * Contact points to the home-page section until it has its own page;
+ * change the href here and every menu updates.
  */
 export const mainNavigation = [
   { key: "home", href: "/" },
-  { key: "products", href: "/#products" },
+  { key: "products", href: "/products" },
   { key: "about", href: "/about" },
   { key: "contact", href: "/#contact" },
 ] as const;

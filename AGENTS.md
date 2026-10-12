@@ -24,4 +24,9 @@ Read `README.md` (Architecture section) before changing code. Non-negotiables:
   rules with RLS. The secret/service-role key is server-only (`src/lib/supabase/service-role.ts`).
 - **Schema changes** are new files in `supabase/migrations/` (never edit an applied migration), with RLS
   policies, then `npm run db:types`.
+- **Admin mutations** go through `runAdminAction()` (`src/server/admin/guard.ts`): it checks the
+  session server-side, acts as the signed-in user (so RLS applies) and refreshes cached pages.
+- **Cached (ISR) routes**: `loading.tsx`, `error.tsx` and `not-found.tsx` under cached routes must not
+  call next-intl server APIs (they can run before the request locale is set and then read headers,
+  which breaks static rendering). Use client components with the messages the layout provides.
 - Run `npm run check` and `npm run build` before committing.

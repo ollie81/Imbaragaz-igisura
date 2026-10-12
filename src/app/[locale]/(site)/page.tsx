@@ -60,7 +60,7 @@ export default async function HomePage({ params }: LocaleParams) {
       />
       <Hero business={business} contacts={contacts} />
       <Highlights business={business} />
-      <FeaturedProducts products={products} contacts={contacts} />
+      <FeaturedProducts products={products} contacts={contacts} businessName={business.name} />
       <WhyChoose experienceYears={business.experienceYears} />
       <HowToOrder />
       <ProductInfo />

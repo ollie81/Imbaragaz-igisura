@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
-import { getTranslations } from "next-intl/server";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages, getTranslations } from "next-intl/server";
 
 import { WhatsAppFab } from "@/components/business/whatsapp-fab";
 import { SiteFooter } from "@/components/layout/site-footer";
@@ -18,11 +19,31 @@ export default async function SiteLayout({
   params,
 }: LocaleParams & { children: ReactNode }) {
   const locale = await resolveLocale(params);
-  const [business, t] = await Promise.all([getBusinessInfo(locale), getTranslations("common")]);
+  const [business, t, messages] = await Promise.all([
+    getBusinessInfo(locale),
+    getTranslations("common"),
+    getMessages(),
+  ]);
+  // Client components in the public site only need these few strings (error,
+  // loading and not-found states); everything else is rendered on the server.
+  const { products, productPage } = messages;
+  const clientMessages = {
+    products: {
+      errorTitle: products.errorTitle,
+      errorText: products.errorText,
+      retry: products.retry,
+      loading: products.loading,
+      showAll: products.showAll,
+    },
+    productPage: {
+      notFoundTitle: productPage.notFoundTitle,
+      notFoundText: productPage.notFoundText,
+    },
+  };
   const contacts = buildContactLinks(business, t("whatsappMessage", { name: business.name }));
 
   return (
-    <>
+    <NextIntlClientProvider messages={clientMessages}>
       <SkipLink label={t("skipToContent")} />
       <SiteHeader businessName={business.name} contacts={contacts} />
       <main id="main" className="flex-1">
@@ -36,6 +57,6 @@ export default async function SiteLayout({
           ariaLabel={`${t("floatingWhatsapp")} ${t("opensInNewTab")}`}
         />
       )}
-    </>
+    </NextIntlClientProvider>
   );
 }

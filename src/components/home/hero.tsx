@@ -3,7 +3,6 @@ import { getTranslations } from "next-intl/server";
 import { buttonStyles } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { ArrowRightIcon, ChatIcon, PhoneIcon } from "@/components/ui/icons";
-import { sectionIds } from "@/config/navigation";
 import { Link } from "@/i18n/navigation";
 import type { ContactLinks } from "@/lib/business/contact-links";
 import type { BusinessInfo } from "@/server/business";
@@ -43,7 +42,7 @@ export async function Hero({ business, contacts, image }: HeroProps) {
 
           <div className="mt-8 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap">
             <Link
-              href={`/#${sectionIds.products}`}
+              href="/products"
               className={buttonStyles({ size: "lg", className: "col-span-2 sm:col-span-1" })}
             >
               {t("common.exploreProducts")}

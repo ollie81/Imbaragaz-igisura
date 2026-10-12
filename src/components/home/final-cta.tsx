@@ -3,7 +3,6 @@ import { getTranslations } from "next-intl/server";
 import { buttonStyles } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { ArrowRightIcon, ChatIcon } from "@/components/ui/icons";
-import { sectionIds } from "@/config/navigation";
 import { Link } from "@/i18n/navigation";
 import type { ContactLinks } from "@/lib/business/contact-links";
 
@@ -30,10 +29,7 @@ export async function FinalCta({ name, contacts }: { name: string; contacts: Con
               {t("home.final.description", { name })}
             </p>
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-              <Link
-                href={`/#${sectionIds.products}`}
-                className={buttonStyles({ variant: "inverse", size: "lg" })}
-              >
+              <Link href="/products" className={buttonStyles({ variant: "inverse", size: "lg" })}>
                 {t("common.exploreProducts")}
                 <ArrowRightIcon />
               </Link>

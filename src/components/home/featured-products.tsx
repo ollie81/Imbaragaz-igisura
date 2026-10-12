@@ -2,20 +2,26 @@ import { getTranslations } from "next-intl/server";
 
 import { ProductGrid } from "@/components/products/product-grid";
 import { buttonStyles } from "@/components/ui/button";
-import { ChatIcon, PhoneIcon, SproutIcon } from "@/components/ui/icons";
+import { ArrowRightIcon, ChatIcon, PhoneIcon, SproutIcon } from "@/components/ui/icons";
 import { Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { sectionIds } from "@/config/navigation";
+import { Link } from "@/i18n/navigation";
 import type { ContactLinks } from "@/lib/business/contact-links";
 import type { ProductSummary } from "@/server/products";
 
 type FeaturedProductsProps = {
   products: ProductSummary[];
   contacts: ContactLinks;
+  businessName: string;
 };
 
 /** Real products from the database, or an honest "coming soon" state when there are none. */
-export async function FeaturedProducts({ products, contacts }: FeaturedProductsProps) {
+export async function FeaturedProducts({
+  products,
+  contacts,
+  businessName,
+}: FeaturedProductsProps) {
   const t = await getTranslations();
   const phone = contacts.phones[0];
 
@@ -30,7 +36,18 @@ export async function FeaturedProducts({ products, contacts }: FeaturedProductsP
 
       <div className="mt-10">
         {products.length > 0 ? (
-          <ProductGrid products={products} />
+          <>
+            <ProductGrid
+              products={products}
+              contact={{ businessName, whatsappE164: contacts.whatsapp?.e164 ?? null }}
+            />
+            <div className="mt-10 text-center">
+              <Link href="/products" className={buttonStyles({ size: "lg" })}>
+                {t("home.products.viewAll")}
+                <ArrowRightIcon />
+              </Link>
+            </div>
+          </>
         ) : (
           <div className="relative overflow-hidden rounded-card border border-dashed border-leaf-200 bg-leaf-50/60 px-6 py-10 text-center sm:px-10 sm:py-14">
             <span className="mx-auto grid size-16 place-items-center rounded-full bg-background text-primary shadow-card">
