@@ -248,7 +248,7 @@ export default async function ProductPage({ params }: Props) {
 
             <div className="mt-8 rounded-card border border-gold-200 bg-accent-soft p-5 sm:p-6">
               <h2 className="font-sans text-lg font-semibold text-leaf-900">
-                {t("productPage.askTitle")}
+                {t("productPage.askTitle", { name: product.name })}
               </h2>
               <p className="mt-1 text-sm text-muted-foreground">{t("productPage.askText")}</p>
               <div className="mt-4 grid gap-3 sm:grid-cols-2">

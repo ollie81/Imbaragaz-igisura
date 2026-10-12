@@ -16,8 +16,13 @@ Read `README.md` (Architecture section) before changing code. Non-negotiables:
   descriptions come from Supabase. Never invent products, prices, testimonials or business facts.
   The only exception is `src/config/business-defaults.ts`: verified facts used as a fallback when the
   database is unavailable (keep it in sync with the seed migrations; never add unconfirmed data).
-- **No medical claims.** Product health information is stored only as `traditional_use` and must be
-  presented as traditional use, never as a verified medical effect.
+- **No medical claims.** How a product is used is stored in `traditional_use` and shown as
+  "How it is commonly used" / "Uko bikunze gukoreshwa", always with the note that it is not a
+  medically proven effect.
+- **Wording (requested by the business).** Customer-facing text speaks about **natural** products.
+  Do not use "medicine"/"imiti", "traditional"/"gakondo" or "ibicuruzwa"/"ubucuruzi" (trade) to
+  describe what the business offers. In Kinyarwanda use e.g. "Ibyo dutanga", "ibintu by'umwimerere",
+  "ibikomoka ku bimera".
 - **No hard-coded UI text.** All user-facing strings go in `src/messages/*.json` (English is the
   reference; run `npm run i18n:check`). Kinyarwanda wording must be reviewed by the family.
 - **Security.** Admin pages and Server Actions call `requireAdmin()`; the database enforces the same

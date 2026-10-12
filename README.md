@@ -1,6 +1,6 @@
 # Imbaraga z'Igisura
 
-Website for **Imbaraga z'Igisura** — traditional medicine and natural products, Musanze (Rwanda).
+Website for **Imbaraga z'Igisura** — natural products, Musanze (Rwanda).
 
 Bilingual (Kinyarwanda / English) website with a home page, a searchable product catalogue with
 product detail pages, an About page, and a secure admin dashboard where the business manages products,
@@ -131,6 +131,7 @@ Migrations in `supabase/migrations/`:
 | `20261005000100_business_experience.sql`            | `business_settings.experience_years` (shown as "20+ years")                                                                                    |
 | `20261011000100_catalog_extensions.sql`             | Product `ingredients` + `storage_instructions`; availability becomes optional (never assumed); 12 suggested categories                         |
 | `20261011000200_draft_products_from_shop_signs.sql` | 41 **draft** products named on the shop signs — names only, no prices/sizes/claims; hidden until published                                     |
+| `20261012000100_natural_wording.sql`                | Removes the empty "Traditional products" category; renames "Ibindi bicuruzwa"                                                                  |
 
 Design notes:
 
@@ -190,8 +191,9 @@ Sign in at `/rw/admin/login` (or `/en/admin/login`). Only accounts listed in `pu
 - **Products → open a draft** (41 drafts were created from the shop signs) or **New product**.
 - Fill in the name and information in Kinyarwanda and/or English. A draft can be saved with one
   language; the public site shows the other language until a translation exists.
-- **Traditional use** is always shown with a note that it is not a medically proven effect. Never
-  enter cures, disease-treatment claims, invented origins or ingredients.
+- **How it is commonly used** (stored as `traditional_use`) is always shown with a note that it is
+  not a medically proven effect. Never enter cures, disease-treatment claims, invented origins or
+  ingredients. Describe products as natural; avoid "medicine"/"imiti" and "traditional"/"gakondo".
 - **Photos**: real photos only. They are resized in the browser (max 1600 px, WebP), which also
   strips camera metadata such as GPS location, then uploaded to the `product-images` bucket. The
   first photo becomes the main photo; any photo can be made main; add a short description for

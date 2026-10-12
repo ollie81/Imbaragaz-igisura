@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "Traditional Medicine & Natural Products in Musanze",
-    "description": "Imbaraga z'Igisura offers traditional medicine and natural products in Musanze, Rwanda, near Musanze Bus Station. More than {years} years of experience. Call or WhatsApp us."
+    "title": "Natural Products in Musanze",
+    "description": "Imbaraga z'Igisura offers natural products in Musanze, Rwanda, near Musanze Bus Station: herbs, spices, natural oils, nuts, seeds and more. More than {years} years of experience. Call or WhatsApp us."
   },
   "common": {
     "skipToContent": "Skip to main content",
@@ -46,15 +46,15 @@
     "7": "Sunday"
   },
   "footer": {
-    "tagline": "Traditional medicine and natural products",
+    "tagline": "Natural, plant-based products",
     "pages": "Pages",
     "rights": "All rights reserved."
   },
   "home": {
     "hero": {
       "eyebrow": "Musanze, Rwanda",
-      "title": "Traditional knowledge. Natural products. Trusted for over {years} years.",
-      "description": "Explore our traditional medicine and natural products, and contact us directly by WhatsApp or phone. We are happy to help you find what you are looking for."
+      "title": "Natural products. Trusted for over {years} years.",
+      "description": "Explore our natural products and contact us directly by WhatsApp or phone. We are happy to help you find what you are looking for."
     },
     "highlights": {
       "label": "At a glance",
@@ -67,7 +67,7 @@
     "products": {
       "eyebrow": "Our products",
       "title": "Explore our products",
-      "description": "Discover our selection of traditional medicine and natural products.",
+      "description": "Discover our selection of natural products.",
       "emptyTitle": "Our products will be available here soon",
       "emptyDescription": "Product information, sizes and prices will be added here. In the meantime, contact us and we will gladly tell you what is available.",
       "askOnWhatsapp": "Ask on WhatsApp",
@@ -77,9 +77,9 @@
       "eyebrow": "Why choose us",
       "title": "Why choose Imbaraga z'Igisura",
       "experienceTitle": "More than {years} years of experience",
-      "experienceText": "We have been providing traditional medicine and natural products for more than {years} years.",
+      "experienceText": "We have been offering natural products for more than {years} years.",
       "naturalTitle": "Natural products",
-      "naturalText": "A selection of traditional medicine and natural products, with clear information about each one.",
+      "naturalText": "A selection of natural products, with clear information about each one.",
       "personalTitle": "Direct, personal help",
       "personalText": "You speak with us directly. We take the time to answer your questions about our products.",
       "visitTitle": "Visit us in Musanze",
@@ -104,20 +104,20 @@
       "description": "Each product page will share the information available for that product, so you can choose with confidence.",
       "name": "Product name",
       "productDescription": "Description",
-      "traditionalUse": "Traditional uses",
+      "traditionalUse": "How it is commonly used",
       "usage": "How it is used",
       "sizes": "Available sizes",
       "price": "Price",
       "origin": "Origin",
       "warnings": "Warnings and important notes",
       "noteTitle": "Good to know",
-      "note": "Information about traditional uses comes from traditional knowledge and our experience. It is not a medical diagnosis or a promise of results. If you are pregnant, taking other medicine or have a health condition, please ask a health professional for advice."
+      "note": "Information about how products are used comes from our experience. It is not a medical diagnosis or a promise of results. If you are pregnant, under a doctor's care or have a health condition, please ask a health professional for advice."
     },
     "about": {
       "eyebrow": "About us",
-      "title": "A family providing traditional medicine in Musanze",
-      "text1": "Imbaraga z'Igisura provides traditional medicine and natural products in Musanze, Rwanda.",
-      "text2": "For more than {years} years, we have been committed to helping every customer understand the products we offer: what they are, how they are traditionally used and how to use them."
+      "title": "A family offering natural products in Musanze",
+      "text1": "Imbaraga z'Igisura offers natural products in Musanze, Rwanda.",
+      "text2": "For more than {years} years, we have been committed to helping every customer understand what we offer: what it is and how to use it."
     },
     "contact": {
       "title": "Have a question?",
@@ -161,11 +161,11 @@
     "category": "Category",
     "askOnWhatsapp": "Ask on WhatsApp",
     "askAboutOnWhatsapp": "Ask about {name} on WhatsApp",
-    "whatsappMessage": "Hello {business}, I would like information about this product: {name}\n{url}"
+    "whatsappMessage": "Hello {business}, I would like information about {name}\n{url}"
   },
   "about": {
     "metaTitle": "About us",
-    "metaDescription": "Imbaraga z'Igisura: traditional medicine and natural products in Musanze, Rwanda, with more than {years} years of experience."
+    "metaDescription": "Imbaraga z'Igisura: natural products in Musanze, Rwanda, with more than {years} years of experience."
   },
   "notFound": {
     "title": "Page not found",
@@ -249,8 +249,8 @@
       "originHelp": "Only if known for certain.",
       "ingredients": "Ingredients / composition",
       "ingredientsHelp": "Only verified information.",
-      "traditionalUse": "Traditional use",
-      "traditionalUseHelp": "How the product is traditionally used. Do not promise cures or medical results.",
+      "traditionalUse": "How it is commonly used",
+      "traditionalUseHelp": "How it is commonly used. Do not promise cures or medical results.",
       "usage": "Directions for use",
       "warnings": "Warnings and important notes",
       "storage": "Storage",
@@ -405,15 +405,15 @@
     "description": "Description",
     "ingredients": "Ingredients",
     "origin": "Origin",
-    "traditionalUse": "Traditional use",
-    "traditionalUseNote": "This describes how the product is traditionally used. It is not a medically proven effect.",
+    "traditionalUse": "How it is commonly used",
+    "traditionalUseNote": "This describes how it is commonly used. It is not a medically proven effect.",
     "usage": "How to use",
     "warnings": "Warnings and important notes",
     "storage": "Storage",
-    "askTitle": "Interested in this product?",
-    "askText": "Send us a WhatsApp message. The product name and link are added for you.",
+    "askTitle": "Interested in {name}?",
+    "askText": "Send us a WhatsApp message. The name and link of this page are added for you.",
     "translationNote": "Information for this product is not yet available in English.",
-    "healthNote": "Information about traditional use is not a medical diagnosis or a promise of results. If you are pregnant, taking medicine or have a health condition, please ask a health professional first.",
+    "healthNote": "Information about how a product is used is not a medical diagnosis or a promise of results. If you are pregnant, under a doctor's care or have a health condition, please ask a health professional first.",
     "backToProducts": "All products",
     "notFoundTitle": "Product not found",
     "notFoundText": "This product does not exist or is no longer available.",
