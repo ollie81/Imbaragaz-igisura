@@ -22,7 +22,7 @@ Read `README.md` (Architecture section) before changing code. Non-negotiables:
   warnings appear only when the manager enters them for a specific product.
 - **Wording (requested by the business).** Customer-facing text speaks about **natural** products.
   Do not use "medicine"/"imiti", "traditional"/"gakondo" or "ibicuruzwa"/"ubucuruzi" (trade) to
-  describe what the business offers. In Kinyarwanda use e.g. "Ibyo dutanga", "ibintu by'umwimerere",
+  describe what the business offers. In Kinyarwanda use e.g. "Ibyo ducuruza", "ibintu by'umwimerere",
   "ibikomoka ku bimera".
 - **No hard-coded UI text.** All user-facing strings go in `src/messages/*.json` (English is the
   reference; run `npm run i18n:check`). Kinyarwanda wording must be reviewed by the family.

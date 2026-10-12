@@ -13,9 +13,9 @@
     "whatsapp": "WhatsApp",
     "whatsappUs": "Twandikire kuri WhatsApp",
     "whatsappNumber": "Twandikire kuri WhatsApp: {number}",
-    "whatsappMessage": "Muraho {name}, nifuzaga amakuru ku byo mutanga.",
+    "whatsappMessage": "Muraho {name}, nifuzaga amakuru ku byo mucuruza.",
     "floatingWhatsapp": "Tuvugishe kuri WhatsApp",
-    "exploreProducts": "Reba ibyo dutanga",
+    "exploreProducts": "Reba ibyo ducuruza",
     "learnMore": "Menya byinshi",
     "contact": "Twandikire",
     "location": "Aho dukorera",
@@ -29,7 +29,7 @@
   "nav": {
     "label": "Ibice by'urubuga",
     "home": "Ahabanza",
-    "products": "Ibyo dutanga",
+    "products": "Ibyo ducuruza",
     "about": "Abo turi bo",
     "contact": "Twandikire",
     "openMenu": "Fungura menu",
@@ -54,7 +54,7 @@
     "hero": {
       "eyebrow": "Musanze, Rwanda",
       "title": "Ibintu by'umwimerere. Imyaka irenga {years} y'icyizere.",
-      "description": "Menya ibikomoka ku bimera n'ibindi by'umwimerere dutanga, kandi utuvugishe ako kanya kuri WhatsApp cyangwa kuri telefoni. Twishimiye kugufasha kubona icyo ukeneye."
+      "description": "Menya ibikomoka ku bimera n'ibindi by'umwimerere ducuruza, kandi utuvugishe ako kanya kuri WhatsApp cyangwa kuri telefoni. Twishimiye kugufasha kubona icyo ukeneye."
     },
     "highlights": {
       "label": "Mu ncamake",
@@ -65,31 +65,31 @@
       "contactLabel": "Telefoni cyangwa WhatsApp"
     },
     "products": {
-      "eyebrow": "Ibyo dutanga",
-      "title": "Menya ibyo dutanga",
-      "description": "Reba ibikomoka ku bimera n'ibindi by'umwimerere dutanga.",
-      "emptyTitle": "Ibyo dutanga biraza hano vuba",
+      "eyebrow": "Ibyo ducuruza",
+      "title": "Menya ibyo ducuruza",
+      "description": "Reba ibikomoka ku bimera n'ibindi by'umwimerere ducuruza.",
+      "emptyTitle": "Ibyo ducuruza biraza hano vuba",
       "emptyDescription": "Amakuru kuri buri kintu, ingano n'ibiciro bizashyirwa hano. Hagati aho, twandikire tukubwire ibihari.",
       "askOnWhatsapp": "Baza kuri WhatsApp",
-      "viewAll": "Reba ibyo dutanga byose"
+      "viewAll": "Reba ibyo ducuruza byose"
     },
     "why": {
       "eyebrow": "Impamvu watugana",
       "title": "Kuki wahitamo Imbaraga z'Igisura?",
       "experienceTitle": "Uburambe bw'imyaka irenga {years}",
-      "experienceText": "Tumaze imyaka irenga {years} dutanga ibikomoka ku bimera n'ibindi by'umwimerere.",
+      "experienceText": "Tumaze imyaka irenga {years} ducuruza ibikomoka ku bimera n'ibindi by'umwimerere.",
       "naturalTitle": "Ibintu by'umwimerere",
       "naturalText": "Ibikomoka ku bimera n'ibindi by'umwimerere, buri kimwe gifite amakuru asobanutse.",
       "personalTitle": "Ubufasha bwihariye",
-      "personalText": "Uvugana natwe ubwacu. Dufata umwanya wo gusubiza ibibazo byawe ku byo dutanga.",
+      "personalText": "Uvugana natwe ubwacu. Dufata umwanya wo gusubiza ibibazo byawe ku byo ducuruza.",
       "visitTitle": "Dusure i Musanze",
       "visitText": "Ngwino ku iduka ryacu tuganire imbonankubone."
     },
     "order": {
       "eyebrow": "Uko bikorwa",
-      "title": "Uko wabona ibyo dutanga",
-      "step1Title": "Reba ibyo dutanga",
-      "step1Text": "Reba ibyo dutanga hano, cyangwa utubaze ibihari.",
+      "title": "Uko wabona ibyo ducuruza",
+      "step1Title": "Reba ibyo ducuruza",
+      "step1Text": "Reba ibyo ducuruza hano, cyangwa utubaze ibihari.",
       "step2Title": "Tuvugishe",
       "step2Text": "Twandikire kuri WhatsApp cyangwa uduhamagare. Tuzasubiza ibibazo byawe kandi twemeze ibyo utumije.",
       "step3Title": "Dusure cyangwa tukoherereze",
@@ -131,7 +131,7 @@
     },
     "final": {
       "title": "Wifuza kumenya byinshi?",
-      "description": "Reba ibyo dutanga cyangwa uvugane na {name} ako kanya."
+      "description": "Reba ibyo ducuruza cyangwa uvugane na {name} ako kanya."
     }
   },
   "product": {
@@ -190,15 +190,15 @@
     },
     "dashboard": {
       "title": "Ibiro",
-      "intro": "Cunga ibyo dutanga n'ibyiciro bigaragara ku rubuga.",
+      "intro": "Cunga ibyo ducuruza n'ibyiciro bigaragara ku rubuga.",
       "published": "Byashyizwe ahagaragara",
       "drafts": "Ibiri gutegurwa",
       "categories": "Ibyiciro",
       "addProduct": "Ongeraho ikintu",
-      "manageProducts": "Gucunga ibyo dutanga",
+      "manageProducts": "Gucunga ibyo ducuruza",
       "manageCategories": "Gucunga ibyiciro",
       "howToTitle": "Uko wongeraho ikintu",
-      "howTo1": "Fungura Ibyo dutanga uhitemo ikiri gutegurwa, cyangwa ukore ikintu gishya.",
+      "howTo1": "Fungura Ibyo ducuruza uhitemo ikiri gutegurwa, cyangwa ukore ikintu gishya.",
       "howTo2": "Andika izina n'amakuru mu Kinyarwanda no mu Cyongereza (ururimi rumwe rurahagije ku giri gutegurwa).",
       "howTo3": "Ongeramo amafoto nyakuri, hanyuma ingano n'ibiciro niba byemejwe.",
       "howTo4": "Shyira uko gihagaze kuri Cyashyizwe ahagaragara hanyuma ubike. Kigaragara ku rubuga mu minota mike."
@@ -207,11 +207,11 @@
     "viewSite": "Reba urubuga",
     "nav": {
       "dashboard": "Ibiro",
-      "products": "Ibyo dutanga",
+      "products": "Ibyo ducuruza",
       "categories": "Ibyiciro"
     },
     "products": {
-      "title": "Ibyo dutanga",
+      "title": "Ibyo ducuruza",
       "new": "Ikintu gishya",
       "filterPlaceholder": "Shakisha ukoresheje izina",
       "empty": "Nta kintu kirashyirwamo.",
@@ -272,7 +272,7 @@
       "create": "Kora igiri gutegurwa",
       "creating": "Birakorwa…",
       "viewOnSite": "Reba ku rubuga",
-      "back": "Ibyo dutanga byose",
+      "back": "Ibyo ducuruza byose",
       "dangerZone": "Siba",
       "deleteText": "Bisiba burundu iki kintu, ingano zacyo n'amafoto yacyo. Kugira ngo ugihishe by'agateganyo, shyira uko gihagaze kuri Kiri gutegurwa cyangwa Cyabitswe.",
       "delete": "Siba burundu",
@@ -365,9 +365,9 @@
     }
   },
   "products": {
-    "metaTitle": "Ibyo dutanga",
+    "metaTitle": "Ibyo ducuruza",
     "metaDescription": "Ibirungo, amavuta akomoka ku bimera, ubunyobwa, inzuzi, icyayi n'ibindi by'umwimerere bya Imbaraga z'Igisura i Musanze, mu Rwanda.",
-    "eyebrow": "Ibyo dutanga",
+    "eyebrow": "Ibyo ducuruza",
     "title": "Ibintu by'umwimerere",
     "intro": "Ibirungo, amavuta akomoka ku bimera, ubunyobwa, inzuzi, icyayi n'ibindi. Ibiciro n'ingano bigaragazwa iyo byemejwe. Ku bindi byose, tubaze kuri WhatsApp.",
     "searchLabel": "Shakisha",
@@ -378,12 +378,12 @@
     "allCategories": "Byose",
     "resultsCount": "{count, plural, one {Ikintu #} other {Ibintu #}}",
     "resultsFor": "kuri “{query}”",
-    "emptyTitle": "Ibyo dutanga biraza hano vuba",
+    "emptyTitle": "Ibyo ducuruza biraza hano vuba",
     "emptyText": "Amakuru ari gushyirwaho. Hagati aho, tubaze kuri WhatsApp cyangwa uduhamagare tukubwire ibihari.",
     "noResultsTitle": "Nta kintu kibonetse",
     "noResultsText": "Gerageza irindi jambo, reba uko wanditse, cyangwa uhitemo ikindi cyiciro. Ushobora no kutubaza ako kanya.",
-    "showAll": "Reba ibyo dutanga byose",
-    "errorTitle": "Ibyo dutanga ntibyabashije kuboneka",
+    "showAll": "Reba ibyo ducuruza byose",
+    "errorTitle": "Ibyo ducuruza ntibyabashije kuboneka",
     "errorText": "Reba niba murandasi ikora, hanyuma wongere ugerageze.",
     "retry": "Ongera ugerageze",
     "loading": "Biri kuza",
@@ -410,7 +410,7 @@
     "askTitle": "Ushishikajwe na {name}?",
     "askText": "Twandikire kuri WhatsApp. Izina n'umurongo w'iyi paji byongerwamo ubwabyo.",
     "translationNote": "Amakuru y'iki kintu ntaraboneka mu Kinyarwanda.",
-    "backToProducts": "Reba ibyo dutanga byose",
+    "backToProducts": "Reba ibyo ducuruza byose",
     "notFoundTitle": "Ntitwabonye ibyo ushaka",
     "notFoundText": "Ibi ntibibaho cyangwa ntibikiboneka.",
     "photoOf": "Ifoto {index} kuri {total}",
