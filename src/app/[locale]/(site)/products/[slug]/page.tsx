@@ -325,13 +325,6 @@ export default async function ProductPage({ params }: Props) {
           )}
         </div>
 
-        {(product.traditionalUse || product.usageInstructions) && (
-          <p className="mt-6 flex max-w-3xl gap-2 text-sm leading-relaxed text-muted-foreground">
-            <InfoIcon className="mt-0.5 size-4 shrink-0 text-leaf-600" />
-            {t("productPage.healthNote")}
-          </p>
-        )}
-
         <div className="mt-12">
           <Link href="/products" className={buttonStyles({ variant: "outline", size: "lg" })}>
             {t("productPage.backToProducts")}

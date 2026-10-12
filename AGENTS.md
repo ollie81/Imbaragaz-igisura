@@ -18,8 +18,8 @@ Read `README.md` (Architecture section) before changing code. Non-negotiables:
   database is unavailable (keep it in sync with the seed migrations; never add unconfirmed data).
 - **No medical claims.** How a product is used is stored in `traditional_use` and shown as
   "How it is commonly used" / "Uko bikunze gukoreshwa". Never write cures or treatment promises.
-  At the business's request the site does NOT show "not a medically proven effect" style notes;
-  product pages only advise pregnant people / people under a doctor's care to ask a professional.
+  At the business's request the site shows NO general health disclaimers or "ask a doctor" notes;
+  warnings appear only when the manager enters them for a specific product.
 - **Wording (requested by the business).** Customer-facing text speaks about **natural** products.
   Do not use "medicine"/"imiti", "traditional"/"gakondo" or "ibicuruzwa"/"ubucuruzi" (trade) to
   describe what the business offers. In Kinyarwanda use e.g. "Ibyo dutanga", "ibintu by'umwimerere",

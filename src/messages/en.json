@@ -109,9 +109,7 @@
       "sizes": "Available sizes",
       "price": "Price",
       "origin": "Origin",
-      "warnings": "Warnings and important notes",
-      "noteTitle": "Good to know",
-      "note": "Information about how products are used comes from our experience. If you are pregnant, under a doctor's care or have a health condition, please ask a health professional before use."
+      "warnings": "Warnings and important notes"
     },
     "about": {
       "eyebrow": "About us",
@@ -250,7 +248,7 @@
       "ingredients": "Ingredients / composition",
       "ingredientsHelp": "Only verified information.",
       "traditionalUse": "How it is commonly used",
-      "traditionalUseHelp": "How it is commonly used. Do not promise cures or medical results.",
+      "traditionalUseHelp": "How it is commonly used. Write only information you are sure of.",
       "usage": "Directions for use",
       "warnings": "Warnings and important notes",
       "storage": "Storage",
@@ -412,7 +410,6 @@
     "askTitle": "Interested in {name}?",
     "askText": "Send us a WhatsApp message. The name and link of this page are added for you.",
     "translationNote": "Information for this product is not yet available in English.",
-    "healthNote": "If you are pregnant, under a doctor's care or have a health condition, please ask a health professional before use.",
     "backToProducts": "All products",
     "notFoundTitle": "Product not found",
     "notFoundText": "This product does not exist or is no longer available.",

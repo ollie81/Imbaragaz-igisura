@@ -109,9 +109,7 @@
       "sizes": "Ingano ziboneka",
       "price": "Igiciro",
       "origin": "Aho gikomoka",
-      "warnings": "Ibyo kwitondera",
-      "noteTitle": "Icyo ukwiye kumenya",
-      "note": "Amakuru ku mikoreshereze ashingiye ku burambe bwacu. Niba utwite, ukurikiranwa na muganga cyangwa ufite ikibazo cy'ubuzima, banza ugishe inama umuganga mbere yo kubikoresha."
+      "warnings": "Ibyo kwitondera"
     },
     "about": {
       "eyebrow": "Abo turi bo",
@@ -250,7 +248,7 @@
       "ingredients": "Ibigize",
       "ingredientsHelp": "Amakuru yemejwe gusa.",
       "traditionalUse": "Uko bikunze gukoreshwa",
-      "traditionalUseHelp": "Uko bikunze gukoreshwa. Ntukemeze ko bikiza cyangwa umusaruro w'ubuvuzi.",
+      "traditionalUseHelp": "Uko bikunze gukoreshwa. Andika amakuru uzi neza gusa.",
       "usage": "Uko gikoreshwa",
       "warnings": "Ibyo kwitondera",
       "storage": "Uko kibikwa",
@@ -412,7 +410,6 @@
     "askTitle": "Ushishikajwe na {name}?",
     "askText": "Twandikire kuri WhatsApp. Izina n'umurongo w'iyi paji byongerwamo ubwabyo.",
     "translationNote": "Amakuru y'iki kintu ntaraboneka mu Kinyarwanda.",
-    "healthNote": "Niba utwite, ukurikiranwa na muganga cyangwa ufite ikibazo cy'ubuzima, banza ugishe inama umuganga mbere yo kubikoresha.",
     "backToProducts": "Reba ibyo dutanga byose",
     "notFoundTitle": "Ntitwabonye ibyo ushaka",
     "notFoundText": "Ibi ntibibaho cyangwa ntibikiboneka.",

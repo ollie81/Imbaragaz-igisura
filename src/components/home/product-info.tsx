@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 
-import { CheckIcon, InfoIcon } from "@/components/ui/icons";
+import { CheckIcon } from "@/components/ui/icons";
 import { Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 
@@ -39,18 +39,6 @@ export async function ProductInfo() {
               </li>
             ))}
           </ul>
-          <aside
-            aria-labelledby="info-note-title"
-            className="mt-6 flex gap-3 rounded-2xl bg-background/70 p-5 text-sm leading-relaxed text-muted-foreground"
-          >
-            <InfoIcon className="mt-0.5 size-5 shrink-0 text-leaf-600" />
-            <div>
-              <h3 id="info-note-title" className="font-sans font-semibold text-leaf-900">
-                {t("noteTitle")}
-              </h3>
-              <p className="mt-1">{t("note")}</p>
-            </div>
-          </aside>
         </div>
       </div>
     </Section>
