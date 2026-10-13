@@ -40,7 +40,7 @@ export type ProductDraftInput = {
 
 export type ProductDraftResult =
   | { status: "success"; draft: Record<ContentLocale, Partial<Record<DraftField, string>>> }
-  | { status: "error"; message: string };
+  | { status: "error"; message: string; detail?: string };
 
 const SYSTEM_PROMPT = `You write product information for the website of Imbaraga z'Igisura, a family shop in Musanze, Rwanda, that has sold natural products (herbs, spices, seeds, oils, honey and other plant-based products) for more than 20 years. Customers read the site on their phones in Kinyarwanda or English.
 
@@ -161,11 +161,39 @@ export async function draftProductTextAction(
     }
     return { status: "success", draft };
   } catch (error) {
-    if (error instanceof OpenAI.APIError) {
-      console.error("[ai-draft] API error", error.status, error.message);
-    } else {
-      console.error("[ai-draft] failed:", error instanceof Error ? error.message : error);
-    }
-    return { status: "error", message: "aiDraft.failed" };
+    return describeError(error);
   }
+}
+
+/**
+ * Tells the manager WHY the draft failed (wrong key, no credit, model not
+ * available, …) so it can be fixed without reading server logs. Only shown
+ * to signed-in admins.
+ */
+function describeError(error: unknown): ProductDraftResult {
+  if (error instanceof OpenAI.APIConnectionTimeoutError) {
+    return { status: "error", message: "aiDraft.errorTimeout" };
+  }
+  if (error instanceof OpenAI.APIError) {
+    console.error("[ai-draft] API error", error.status, error.code, error.message);
+    if (error.status === 401) return { status: "error", message: "aiDraft.errorKey" };
+    if (error.code === "insufficient_quota") {
+      return { status: "error", message: "aiDraft.errorQuota" };
+    }
+    if (error.status === 429) return { status: "error", message: "aiDraft.errorBusy" };
+    if (error.status === 404 || error.code === "model_not_found") {
+      return { status: "error", message: "aiDraft.errorModel" };
+    }
+    return {
+      status: "error",
+      message: "aiDraft.failedDetail",
+      detail: `${error.status ?? ""} ${error.message}`.trim().slice(0, 200),
+    };
+  }
+  console.error("[ai-draft] failed:", error instanceof Error ? error.message : error);
+  return {
+    status: "error",
+    message: "aiDraft.failedDetail",
+    detail: (error instanceof Error ? error.message : String(error)).slice(0, 200),
+  };
 }

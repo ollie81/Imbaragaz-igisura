@@ -372,7 +372,13 @@
       "filled": "AI filled {count, plural, one {# box} other {# boxes}} (marked in yellow). Read and correct them, then tap Save.",
       "nothingToFill": "All boxes already have text. Empty a box if you want AI to write it.",
       "nameMissing": "Enter the product name first.",
-      "failed": "AI could not write a draft right now. Please try again later."
+      "failed": "AI could not write a draft right now. Please try again later.",
+      "failedDetail": "AI could not write a draft ({detail}).",
+      "errorKey": "OpenAI did not accept the key. Check OPENAI_API_KEY in Vercel (copy it again from platform.openai.com), then redeploy.",
+      "errorQuota": "The OpenAI account has no credit. Add credit at platform.openai.com → Settings → Billing, then try again.",
+      "errorBusy": "OpenAI is busy or the usage limit was reached. Wait a minute and try again.",
+      "errorModel": "This OpenAI account cannot use the selected AI model. In Vercel, add OPENAI_MODEL = gpt-5.4-mini, then redeploy.",
+      "errorTimeout": "AI took too long to answer. Please try again."
     }
   },
   "products": {

@@ -68,7 +68,10 @@ export function AiDraftButton({ formRef }: { formRef: RefObject<HTMLFormElement 
     startTransition(async () => {
       const result = await draftProductTextAction(input);
       if (result.status === "error") {
-        setMessage({ tone: "error", text: t(result.message as never) });
+        setMessage({
+          tone: "error",
+          text: t(result.message as never, { detail: result.detail ?? "" } as never),
+        });
         return;
       }
       let filled = 0;

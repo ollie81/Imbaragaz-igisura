@@ -372,7 +372,13 @@
       "filled": "AI yujuje {count, plural, one {agasanduku #} other {udusanduku #}} (twagaragajwe n'ibara ry'umuhondo). Dusome, ukosore, hanyuma ukande Bika.",
       "nothingToFill": "Udusanduku twose turimo inyandiko. Siba ibiri mu gasanduku niba ushaka ko AI ikandika.",
       "nameMissing": "Banza wandike izina ry'ikintu.",
-      "failed": "AI ntiyashoboye kwandika ubu. Ongera ugerageze nyuma."
+      "failed": "AI ntiyashoboye kwandika ubu. Ongera ugerageze nyuma.",
+      "failedDetail": "AI ntiyashoboye kwandika ({detail}).",
+      "errorKey": "OpenAI ntiyemeye urufunguzo. Suzuma OPENAI_API_KEY muri Vercel (urwandukure bundi bushya kuri platform.openai.com), hanyuma ukore Redeploy.",
+      "errorQuota": "Konti ya OpenAI nta mafaranga ifite. Ongeramo kuri platform.openai.com → Settings → Billing, hanyuma wongere ugerageze.",
+      "errorBusy": "OpenAI irahuze cyangwa umupaka w'ikoreshwa wagezweho. Tegereza umunota umwe wongere ugerageze.",
+      "errorModel": "Iyi konti ya OpenAI ntishobora gukoresha iyi AI. Muri Vercel, ongeramo OPENAI_MODEL = gpt-5.4-mini, hanyuma ukore Redeploy.",
+      "errorTimeout": "AI yatinze gusubiza. Ongera ugerageze."
     }
   },
   "products": {
