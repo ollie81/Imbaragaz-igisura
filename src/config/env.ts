@@ -23,8 +23,10 @@ function resolveSiteUrl(): string {
 
 export const publicEnv = {
   siteUrl: resolveSiteUrl().replace(/\/+$/, ""),
-  supabaseUrl: process.env.NEXT_PUBLIC_SUPABASE_URL ?? "",
-  supabasePublishableKey: process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ?? "",
+  // Resolved in next.config.ts from SUPABASE_URL / NEXT_PUBLIC_SUPABASE_URL and
+  // SUPABASE_PUBLISHABLE_KEY / SUPABASE_ANON_KEY (or their NEXT_PUBLIC_ forms).
+  supabaseUrl: process.env.APP_SUPABASE_URL ?? "",
+  supabasePublishableKey: process.env.APP_SUPABASE_PUBLISHABLE_KEY ?? "",
 } as const;
 
 /** True when the Supabase URL and publishable key are both configured. */
@@ -35,7 +37,7 @@ export const isSupabaseConfigured = Boolean(
 export function requireSupabasePublicEnv() {
   if (!isSupabaseConfigured) {
     throw new Error(
-      "Supabase is not configured. Set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY (see .env.example).",
+      "Supabase is not configured. Set SUPABASE_URL and SUPABASE_PUBLISHABLE_KEY (or SUPABASE_ANON_KEY); see .env.example.",
     );
   }
   return { url: publicEnv.supabaseUrl, key: publicEnv.supabasePublishableKey };

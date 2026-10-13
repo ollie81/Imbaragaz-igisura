@@ -48,12 +48,12 @@ on UI before the database exists.
 
 ## Environment variables
 
-| Variable                               | Where           | Purpose                                                                                                         |
-| -------------------------------------- | --------------- | --------------------------------------------------------------------------------------------------------------- |
-| `NEXT_PUBLIC_SITE_URL`                 | browser+server  | Public site URL (canonical URLs, sitemap, Open Graph, QR codes). On Vercel it defaults to the production domain |
-| `NEXT_PUBLIC_SUPABASE_URL`             | browser+server  | Supabase project URL                                                                                            |
-| `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | browser+server  | Supabase publishable (or legacy anon) key — safe, RLS-restricted                                                |
-| `SUPABASE_SECRET_KEY`                  | **server only** | Supabase secret (or legacy service_role) key — bypasses RLS. Not needed yet                                     |
+| Variable                                                                     | Where           | Purpose                                                                                                         |
+| ---------------------------------------------------------------------------- | --------------- | --------------------------------------------------------------------------------------------------------------- |
+| `NEXT_PUBLIC_SITE_URL`                                                       | browser+server  | Public site URL (canonical URLs, sitemap, Open Graph, QR codes). On Vercel it defaults to the production domain |
+| `SUPABASE_URL` (or `NEXT_PUBLIC_SUPABASE_URL`)                               | browser+server  | Supabase project URL                                                                                            |
+| `SUPABASE_PUBLISHABLE_KEY` or `SUPABASE_ANON_KEY` (or `NEXT_PUBLIC_…` forms) | browser+server  | Publishable/anon key — safe, RLS-restricted. The build refuses secret/service_role keys here                    |
+| `SUPABASE_SECRET_KEY`                                                        | **server only** | Supabase secret (or legacy service_role) key — bypasses RLS. Not needed yet                                     |
 
 Never prefix the secret key with `NEXT_PUBLIC_` and never commit `.env.local`.
 
