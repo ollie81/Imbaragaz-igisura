@@ -1,39 +1,35 @@
 import Image from "next/image";
 
-import logoMark from "@/assets/brand/logo-mark.png";
+import logoFull from "@/assets/brand/logo-full.jpg";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils/cn";
 
 type BrandLinkProps = {
+  /** Business name, used as the logo's text alternative. */
   name: string;
-  tone?: "default" | "inverse";
+  /** "lg" for places with room to spare, e.g. the footer. */
+  size?: "md" | "lg";
   className?: string;
 };
 
 /**
- * Brand mark: the round emblem cut from the business logo, followed by the
- * name as text (so it stays sharp, translatable and correctly spelled).
- * Every header and footer uses this component.
+ * The full business logo (it already contains the name), linking home.
+ * Every header and footer uses this component. The small round emblem is
+ * only used where space is tiny (browser tab, phone home screen).
  */
-export function BrandLink({ name, tone = "default", className }: BrandLinkProps) {
+export function BrandLink({ name, size = "md", className }: BrandLinkProps) {
   return (
     <Link
       href="/"
-      className={cn(
-        "group inline-flex min-h-11 items-center gap-2.5 rounded-full font-display leading-none font-semibold",
-        tone === "inverse" ? "text-white" : "text-leaf-900",
-        className,
-      )}
+      className={cn("inline-flex min-h-11 shrink-0 items-center rounded-xl", className)}
     >
       <Image
-        src={logoMark}
-        alt=""
-        width={40}
-        height={40}
+        src={logoFull}
+        alt={name}
         loading="eager"
-        className="size-10 shrink-0 rounded-full shadow-sm ring-2 ring-white transition-transform group-hover:rotate-[-8deg]"
+        sizes={size === "lg" ? "168px" : "84px"}
+        className={cn("w-auto rounded-xl shadow-sm", size === "lg" ? "h-28" : "h-14")}
       />
-      <span className="text-[1.05rem] tracking-tight sm:text-lg">{name}</span>
     </Link>
   );
 }

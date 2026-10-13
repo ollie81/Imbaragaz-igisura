@@ -28,7 +28,7 @@ export async function SiteFooter({ business, contacts }: SiteFooterProps) {
     <footer className="mt-auto bg-leaf-950 pb-20 text-leaf-100 md:pb-0">
       <Container className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_0.8fr]">
         <div>
-          <BrandLink name={business.name} tone="inverse" />
+          <BrandLink name={business.name} size="lg" />
           <p className="mt-4 max-w-xs text-leaf-200">{t("footer.tagline")}</p>
           <div className="mt-6">
             <LocaleSwitcher label={t("common.language")} tone="inverse" />
