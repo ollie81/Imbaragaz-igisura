@@ -54,8 +54,9 @@ on UI before the database exists.
 | `SUPABASE_URL` (or `NEXT_PUBLIC_SUPABASE_URL`)                               | browser+server  | Supabase project URL                                                                                            |
 | `SUPABASE_PUBLISHABLE_KEY` or `SUPABASE_ANON_KEY` (or `NEXT_PUBLIC_…` forms) | browser+server  | Publishable/anon key — safe, RLS-restricted. The build refuses secret/service_role keys here                    |
 | `SUPABASE_SECRET_KEY`                                                        | **server only** | Supabase secret (or legacy service_role) key — bypasses RLS. Not needed yet                                     |
+| `ANTHROPIC_API_KEY`                                                          | **server only** | Optional. Turns on the admin "Write a draft with AI" button (Claude API). Without it the button is hidden       |
 
-Never prefix the secret key with `NEXT_PUBLIC_` and never commit `.env.local`.
+Never prefix the secret keys with `NEXT_PUBLIC_` and never commit `.env.local`.
 
 ## Architecture
 
@@ -194,6 +195,13 @@ Sign in at `/rw/admin/login` (or `/en/admin/login`). Only accounts listed in `pu
 - **How it is commonly used** (stored as `traditional_use`): never enter cures, disease-treatment
   claims, invented origins or ingredients. Describe products as natural; avoid "medicine"/"imiti"
   and "traditional"/"gakondo".
+- **Write a draft with AI** (only when `ANTHROPIC_API_KEY` is set): fills the EMPTY text boxes of
+  both languages (name, descriptions, how it is commonly used, directions, origin, storage, search
+  texts) and marks them; it never touches text already written and never adds prices, photos,
+  ingredients or warnings. Nothing is saved until the manager has read and corrected the draft and
+  taps Save. The prompt (`src/server/admin/ai-draft.ts`) forbids health claims and the words the
+  business asked not to use, and any drafted box containing them is dropped. Each draft costs a
+  few US cents.
 - **Photos**: real photos only. They are resized in the browser (max 1600 px, WebP), which also
   strips camera metadata such as GPS location, then uploaded to the `product-images` bucket. The
   first photo becomes the main photo; any photo can be made main; add a short description for

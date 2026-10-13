@@ -362,6 +362,17 @@
       "kg": "kg",
       "piece": "piece",
       "pack": "pack"
+    },
+    "aiDraft": {
+      "title": "Help from AI",
+      "intro": "AI can write a first draft for the empty boxes below, in both languages: description, how it is commonly used, best ways to use it, origin and storage. It never adds prices, photos or warnings.",
+      "reviewNote": "Read and correct everything before you tap Save. Check the Kinyarwanda carefully.",
+      "button": "Write a draft with AI",
+      "working": "Writing… this can take up to a minute.",
+      "filled": "AI filled {count, plural, one {# box} other {# boxes}} (marked in yellow). Read and correct them, then tap Save.",
+      "nothingToFill": "All boxes already have text. Empty a box if you want AI to write it.",
+      "nameMissing": "Enter the product name first.",
+      "failed": "AI could not write a draft right now. Please try again later."
     }
   },
   "products": {

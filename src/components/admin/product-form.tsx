@@ -1,11 +1,12 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useActionState } from "react";
+import { startTransition, useActionState, useRef } from "react";
 
 import { createProductAction, updateProductAction } from "@/server/admin/product-actions";
 import { idleState } from "@/server/admin/form";
 
+import { AiDraftButton } from "./ai-draft-button";
 import {
   Field,
   FormMessage,
@@ -93,17 +94,31 @@ export function NewProductForm({
 export function ProductForm({
   product,
   categories,
+  aiEnabled = false,
 }: {
   product: ProductFormValues;
   categories: CategoryOption[];
+  /** Shows the "Write a draft with AI" helper (only when an AI key is configured). */
+  aiEnabled?: boolean;
 }) {
   const t = useTranslations("admin");
-  const [state, action] = useActionState(updateProductAction, idleState);
+  const formRef = useRef<HTMLFormElement>(null);
+  const [state, action, pending] = useActionState(updateProductAction, idleState);
   const fieldError = useFieldError(state);
   const value = (l: "rw" | "en", field: string) => product.translations[l]?.[field] ?? "";
 
   return (
-    <form action={action} className="space-y-8">
+    <form
+      ref={formRef}
+      // Submitted via onSubmit (not `action`) so React does not reset the form
+      // afterwards: when saving fails, everything typed (or drafted by AI) stays.
+      onSubmit={(event) => {
+        event.preventDefault();
+        const formData = new FormData(event.currentTarget);
+        startTransition(() => action(formData));
+      }}
+      className="space-y-8"
+    >
       <input type="hidden" name="id" value={product.id} />
 
       <section className="rounded-card border border-border bg-background p-5 sm:p-6">
@@ -207,6 +222,11 @@ export function ProductForm({
           {t("productForm.contentSection")}
         </h2>
         <p className="mt-1 text-sm text-muted-foreground">{t("productForm.translationsHint")}</p>
+        {aiEnabled && (
+          <div className="mt-5">
+            <AiDraftButton formRef={formRef} />
+          </div>
+        )}
         <div className="mt-5 grid gap-6 lg:grid-cols-2">
           {CONTENT_LOCALES.map((l) => (
             <fieldset
@@ -286,6 +306,7 @@ export function ProductForm({
         <SubmitButton
           label={t("productForm.save")}
           pendingLabel={t("productForm.saving")}
+          pending={pending}
           className="w-full sm:w-auto"
         />
       </div>

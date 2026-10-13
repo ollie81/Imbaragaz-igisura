@@ -11,3 +11,11 @@ export function getSupabaseSecretKey(): string {
   }
   return key;
 }
+
+/**
+ * Anthropic API key for the admin "Write a draft with AI" button.
+ * Optional: without it the button is hidden.
+ */
+export function getAnthropicApiKey(): string | null {
+  return process.env.ANTHROPIC_API_KEY || null;
+}

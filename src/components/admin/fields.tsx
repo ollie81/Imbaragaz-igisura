@@ -61,6 +61,8 @@ type SubmitButtonProps = {
   confirm?: string;
   name?: string;
   value?: string;
+  /** Pending state for forms submitted with onSubmit (useFormStatus only sees `action` forms). */
+  pending?: boolean;
 };
 
 /** Submit button that disables itself while the form is being saved. */
@@ -72,8 +74,9 @@ export function SubmitButton({
   confirm,
   name,
   value,
+  pending: pendingProp,
 }: SubmitButtonProps) {
-  const { pending } = useFormStatus();
+  const pending = useFormStatus().pending || Boolean(pendingProp);
   return (
     <button
       type="submit"
