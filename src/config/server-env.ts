@@ -13,9 +13,14 @@ export function getSupabaseSecretKey(): string {
 }
 
 /**
- * Anthropic API key for the admin "Write a draft with AI" button.
+ * OpenAI API key for the admin "Write a draft with AI" button.
  * Optional: without it the button is hidden.
  */
-export function getAnthropicApiKey(): string | null {
-  return process.env.ANTHROPIC_API_KEY || null;
+export function getOpenAiApiKey(): string | null {
+  return process.env.OPENAI_API_KEY || null;
+}
+
+/** GPT model used for drafts; override with OPENAI_MODEL without changing code. */
+export function getOpenAiModel(): string {
+  return process.env.OPENAI_MODEL || "gpt-5.5";
 }

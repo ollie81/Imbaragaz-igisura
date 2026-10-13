@@ -11,7 +11,7 @@ import { requireAdmin } from "@/lib/auth/admin";
 import { pickTranslation } from "@/lib/i18n/content";
 import { resolveLocale } from "@/lib/i18n/params";
 import { productPath } from "@/lib/utils/product-paths";
-import { getAnthropicApiKey } from "@/config/server-env";
+import { getOpenAiApiKey } from "@/config/server-env";
 import { getAdminProduct, listAdminCategories } from "@/server/admin/catalog";
 import { deleteProductAction } from "@/server/admin/product-actions";
 import { UUID_PATTERN } from "@/server/admin/validation";
@@ -76,7 +76,7 @@ export default async function EditProductPage({ params }: Props) {
           },
         }}
         categories={categories.map((c) => ({ id: c.id, label: c.label }))}
-        aiEnabled={Boolean(getAnthropicApiKey())}
+        aiEnabled={Boolean(getOpenAiApiKey())}
       />
 
       <ImageManager

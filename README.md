@@ -54,7 +54,8 @@ on UI before the database exists.
 | `SUPABASE_URL` (or `NEXT_PUBLIC_SUPABASE_URL`)                               | browser+server  | Supabase project URL                                                                                            |
 | `SUPABASE_PUBLISHABLE_KEY` or `SUPABASE_ANON_KEY` (or `NEXT_PUBLIC_…` forms) | browser+server  | Publishable/anon key — safe, RLS-restricted. The build refuses secret/service_role keys here                    |
 | `SUPABASE_SECRET_KEY`                                                        | **server only** | Supabase secret (or legacy service_role) key — bypasses RLS. Not needed yet                                     |
-| `ANTHROPIC_API_KEY`                                                          | **server only** | Optional. Turns on the admin "Write a draft with AI" button (Claude API). Without it the button is hidden       |
+| `OPENAI_API_KEY`                                                             | **server only** | Optional. Turns on the admin "Write a draft with AI" button (OpenAI GPT). Without it the button is hidden       |
+| `OPENAI_MODEL`                                                               | **server only** | Optional. GPT model for drafts (default `gpt-5.5`)                                                              |
 
 Never prefix the secret keys with `NEXT_PUBLIC_` and never commit `.env.local`.
 
@@ -195,7 +196,7 @@ Sign in at `/rw/admin/login` (or `/en/admin/login`). Only accounts listed in `pu
 - **How it is commonly used** (stored as `traditional_use`): never enter cures, disease-treatment
   claims, invented origins or ingredients. Describe products as natural; avoid "medicine"/"imiti"
   and "traditional"/"gakondo".
-- **Write a draft with AI** (only when `ANTHROPIC_API_KEY` is set): fills the EMPTY text boxes of
+- **Write a draft with AI** (only when `OPENAI_API_KEY` is set): fills the EMPTY text boxes of
   both languages (name, descriptions, how it is commonly used, directions, origin, storage, search
   texts) and marks them; it never touches text already written and never adds prices, photos,
   ingredients or warnings. Nothing is saved until the manager has read and corrected the draft and

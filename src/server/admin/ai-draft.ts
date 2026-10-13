@@ -1,8 +1,8 @@
 "use server";
 
-import Anthropic from "@anthropic-ai/sdk";
+import OpenAI from "openai";
 
-import { getAnthropicApiKey } from "@/config/server-env";
+import { getOpenAiApiKey, getOpenAiModel } from "@/config/server-env";
 import { getCurrentAdmin } from "@/lib/auth/admin";
 
 /**
@@ -41,8 +41,6 @@ export type ProductDraftInput = {
 export type ProductDraftResult =
   | { status: "success"; draft: Record<ContentLocale, Partial<Record<DraftField, string>>> }
   | { status: "error"; message: string };
-
-const MODEL = "claude-opus-5-5";
 
 const SYSTEM_PROMPT = `You write product information for the website of Imbaraga z'Igisura, a family shop in Musanze, Rwanda, that has sold natural products (herbs, spices, seeds, oils, honey and other plant-based products) for more than 20 years. Customers read the site on their phones in Kinyarwanda or English.
 
@@ -122,7 +120,7 @@ export async function draftProductTextAction(
   const admin = await getCurrentAdmin();
   if (!admin) return { status: "error", message: "errors.notAuthorized" };
 
-  const apiKey = getAnthropicApiKey();
+  const apiKey = getOpenAiApiKey();
   if (!apiKey) return { status: "error", message: "aiDraft.failed" };
 
   if (!CONTENT_LOCALES.some((l) => clean(input?.names?.[l], 200))) {
@@ -130,29 +128,30 @@ export async function draftProductTextAction(
   }
 
   try {
-    const client = new Anthropic({ apiKey, timeout: 90_000, maxRetries: 1 });
-    const response = await client.beta.messages.create({
-      model: MODEL,
-      max_tokens: 16000,
-      // If the model declines, Anthropic retries on its recommended fallback model.
-      betas: ["server-side-fallback-2026-07-01"],
-      fallbacks: "default",
-      output_config: {
-        effort: "medium",
-        format: { type: "json_schema", schema: draftSchema() },
+    const client = new OpenAI({ apiKey, timeout: 90_000, maxRetries: 1 });
+    const response = await client.responses.create({
+      model: getOpenAiModel(),
+      instructions: SYSTEM_PROMPT,
+      input: buildUserPrompt(input),
+      reasoning: { effort: "medium" },
+      max_output_tokens: 16000,
+      // Product names are not private, but nothing needs to be kept by OpenAI.
+      store: false,
+      text: {
+        format: { type: "json_schema", name: "product_draft", strict: true, schema: draftSchema() },
       },
-      system: SYSTEM_PROMPT,
-      messages: [{ role: "user", content: buildUserPrompt(input) }],
     });
 
-    if (response.stop_reason !== "end_turn") {
-      console.error("[ai-draft] unexpected stop reason:", response.stop_reason);
+    if (response.status !== "completed" || !response.output_text) {
+      console.error(
+        "[ai-draft] unexpected response:",
+        response.status,
+        response.incomplete_details,
+      );
       return { status: "error", message: "aiDraft.failed" };
     }
-    const text = response.content.find((b) => b.type === "text");
-    if (!text || text.type !== "text") return { status: "error", message: "aiDraft.failed" };
 
-    const parsed = JSON.parse(text.text) as Record<string, Record<string, unknown>>;
+    const parsed = JSON.parse(response.output_text) as Record<string, Record<string, unknown>>;
     const draft = { rw: {}, en: {} } as Record<ContentLocale, Partial<Record<DraftField, string>>>;
     for (const l of CONTENT_LOCALES) {
       for (const field of DRAFT_FIELD_NAMES) {
@@ -162,7 +161,7 @@ export async function draftProductTextAction(
     }
     return { status: "success", draft };
   } catch (error) {
-    if (error instanceof Anthropic.APIError) {
+    if (error instanceof OpenAI.APIError) {
       console.error("[ai-draft] API error", error.status, error.message);
     } else {
       console.error("[ai-draft] failed:", error instanceof Error ? error.message : error);
