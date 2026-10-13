@@ -423,7 +423,12 @@ export const getPublishedProduct = cache(
       .eq("slug", slug)
       .eq("status", "published")
       .maybeSingle<DetailRow>();
-    if (error) throw new Error(error.message);
+    if (error) {
+      // Show "not found" rather than a server error page (e.g. while the
+      // database is being updated); the cause is logged for the developer.
+      logError(`detail ${slug}`, error.message);
+      return null;
+    }
     if (!data) return null;
 
     const summary = toSummary(data, locale);
