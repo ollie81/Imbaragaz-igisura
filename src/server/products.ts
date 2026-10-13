@@ -76,7 +76,7 @@ export type ProductListResult = {
   pageSize: number;
 };
 
-export const PRODUCTS_PAGE_SIZE = 24;
+export const PRODUCTS_PAGE_SIZE = 60;
 const MAX_QUERY_LENGTH = 80;
 
 // ---------------------------------------------------------------------------
