@@ -7,6 +7,8 @@ import { mainNavigation } from "@/config/navigation";
 import { Link } from "@/i18n/navigation";
 import type { ContactLinks } from "@/lib/business/contact-links";
 
+import { OrderListLink } from "@/components/order/order-list-link";
+
 import { BrandLink } from "./brand-link";
 import { LocaleSwitcher } from "./locale-switcher";
 import { MobileMenu } from "./mobile-menu";
@@ -41,6 +43,7 @@ export async function SiteHeader({ businessName, contacts }: SiteHeaderProps) {
         </nav>
 
         <div className="flex items-center gap-2">
+          <OrderListLink />
           <LocaleSwitcher label={t("common.language")} />
           {contacts.whatsapp && (
             <span className="hidden md:block">

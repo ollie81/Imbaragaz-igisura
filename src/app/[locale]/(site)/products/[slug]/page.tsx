@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { getFormatter, getTranslations } from "next-intl/server";
 
 import { formatPrice, formatVariantSize } from "@/components/products/format";
+import { AddToOrderList, type OrderOption } from "@/components/order/add-to-order-list";
 import { ProductGallery } from "@/components/products/product-gallery";
 import { JsonLd } from "@/components/seo/json-ld";
 import { buttonStyles } from "@/components/ui/button";
@@ -114,6 +115,26 @@ export default async function ProductPage({ params }: Props) {
       priceText: v.price != null ? formatPrice(format, v.price, v.currency) : null,
     }))
     .filter((v) => v.size || v.priceText);
+
+  // Sizes a customer can put on their order list (unavailable sizes are left out).
+  const orderOptions: OrderOption[] = sizedVariants
+    .filter((v) => v.isAvailable)
+    .map((v) => ({
+      variantId: v.id,
+      sizeText: v.size,
+      price: v.price,
+      currency: v.price != null ? v.currency : null,
+      priceText: v.priceText,
+    }));
+  if (orderOptions.length === 0 && sizedVariants.length === 0) {
+    orderOptions.push({
+      variantId: variant?.id ?? null,
+      sizeText: null,
+      price: variant?.price ?? null,
+      currency: variant?.price != null ? variant.currency : null,
+      priceText: mainPrice,
+    });
+  }
 
   const crumbs = [
     { name: t("nav.home"), path: "/" },
@@ -250,6 +271,14 @@ export default async function ProductPage({ params }: Props) {
               <h2 className="font-sans text-lg font-semibold text-leaf-900">
                 {t("productPage.askTitle", { name: product.name })}
               </h2>
+              {orderOptions.length > 0 && product.availability !== "out_of_stock" && (
+                <div className="mt-4">
+                  <AddToOrderList slug={product.slug} name={product.name} options={orderOptions} />
+                  <p className="mt-5 border-t border-gold-200 pt-4 text-sm font-medium text-leaf-900">
+                    {t("orderList.orAsk")}
+                  </p>
+                </div>
+              )}
               <p className="mt-1 text-sm text-muted-foreground">{t("productPage.askText")}</p>
               <div className="mt-4 grid gap-3 sm:grid-cols-2">
                 {whatsappNumbers[0] && (

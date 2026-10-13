@@ -213,6 +213,14 @@ Sign in at `/rw/admin/login` (or `/en/admin/login`). Only accounts listed in `pu
 - **Categories**: create, rename (both languages), hide, reorder (↑/↓) and delete. Only categories
   with published products appear as filters on the website.
 
+## Order list (customers)
+
+Visitors can collect products in an **order list** (header button, "+" on single-size product
+cards, size + quantity on product pages) and send the whole list to the business as one
+pre-written WhatsApp message from `/order-list`. The list lives only in the visitor's browser
+(`localStorage`); there is no checkout, payment, account or server-side order storage. Prices in
+the list are estimates; the business confirms prices and availability on WhatsApp.
+
 ## Conventions
 
 - Server-only modules start with `import "server-only"`.

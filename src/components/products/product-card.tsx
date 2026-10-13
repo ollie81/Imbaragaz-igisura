@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { getFormatter, getLocale, getTranslations } from "next-intl/server";
 
+import { QuickAddButton } from "@/components/order/quick-add-button";
 import { ArrowRightIcon, ChatIcon, LeafIcon } from "@/components/ui/icons";
 import type { AppLocale } from "@/i18n/config";
 import { Link } from "@/i18n/navigation";
@@ -42,6 +43,8 @@ export async function ProductCard({
   const price =
     variant?.price != null ? formatPrice(format, variant.price, variant.currency) : null;
   const unavailable = product.availability === "out_of_stock";
+  // Products with several sizes are added from their page, where the size is chosen.
+  const canQuickAdd = !unavailable && product.variantCount <= 1;
 
   const whatsapp = contact.whatsappE164
     ? productWhatsappHref(
@@ -133,6 +136,18 @@ export async function ProductCard({
             {t("viewDetails")}
             <ArrowRightIcon className="size-4 transition-transform group-hover:translate-x-0.5" />
           </Link>
+          {canQuickAdd && (
+            <QuickAddButton
+              item={{
+                slug: product.slug,
+                name: product.name,
+                variantId: variant?.id ?? null,
+                sizeText,
+                price: variant?.price ?? null,
+                currency: variant?.price != null ? variant.currency : null,
+              }}
+            />
+          )}
           {whatsapp && (
             <a
               href={whatsapp}

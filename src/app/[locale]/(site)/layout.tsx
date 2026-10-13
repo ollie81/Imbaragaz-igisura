@@ -25,8 +25,9 @@ export default async function SiteLayout({
     getMessages(),
   ]);
   // Client components in the public site only need these few strings (error,
-  // loading and not-found states); everything else is rendered on the server.
-  const { products, productPage } = messages;
+  // loading and not-found states, and the order list); everything else is
+  // rendered on the server.
+  const { products, productPage, orderList } = messages;
   const clientMessages = {
     products: {
       errorTitle: products.errorTitle,
@@ -39,6 +40,8 @@ export default async function SiteLayout({
       notFoundTitle: productPage.notFoundTitle,
       notFoundText: productPage.notFoundText,
     },
+    // The order list is kept in the visitor's browser, so it is rendered there.
+    orderList,
   };
   const contacts = buildContactLinks(business, t("whatsappMessage", { name: business.name }));
 
