@@ -171,15 +171,15 @@ Design notes:
    `npx supabase db push`. Then `npm run db:types`.
 4. Authentication → Sign In / Providers: **disable "Allow new users to sign up"**; set the site URL
    and redirect URLs to the production domain.
-5. Create the business manager's account **together with them**: Authentication → Users →
-   **Add user → Create new user**, enter their email, let them type their own password (at least 12
-   characters, upper- and lowercase letters and digits), and tick **Auto Confirm User**.
-   (Do not use "Invite user" yet: the site has no set-password page, so the invitation link
-   cannot be completed.) Then grant access in the SQL editor:
+5. Create the owner's own admin account: Authentication → Users → **Add user → Create new user**,
+   enter your email and a strong password (at least 12 characters, upper- and lowercase letters and
+   digits), and tick **Auto Confirm User**. (Do not use "Invite user" yet: the site has no
+   set-password page, so the invitation link cannot be completed.) Then grant access in the SQL
+   editor, using your name and email:
 
    ```sql
    insert into public.admins (user_id, full_name, role)
-   select id, 'Niyomugaba Patrick', 'owner' from auth.users where email = '<email>';
+   select id, '<your name>', 'owner' from auth.users where email = '<your email>';
    ```
 
    No password is created or stored by the developers.
