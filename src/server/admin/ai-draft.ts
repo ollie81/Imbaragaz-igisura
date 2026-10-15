@@ -25,6 +25,7 @@ const DRAFT_FIELDS = {
   usage_instructions: 3000,
   origin: 300,
   storage_instructions: 1000,
+  warnings: 3000,
   seo_title: 70,
   seo_description: 170,
 } as const;
@@ -50,17 +51,19 @@ Fields:
 - name: the product name. If the shop gave a name in that language, repeat it exactly. Otherwise use the name people in Rwanda commonly use for it in that language; if there is no common Kinyarwanda name, keep the international name.
 - short_description: one or two short sentences for the product card.
 - description: what the product is and what it looks, smells or tastes like. Two short paragraphs at most.
-- traditional_use: how people commonly use it day to day: in food, drinks, tea, baking, around the home, for its smell. Shown under the heading "How it is commonly used".
+- traditional_use: how people commonly use it: in food, drinks, tea, baking, around the home, for skin and hair, AND the health and wellness uses and benefits it is widely known for (see the health rules below). Shown under the heading "How it is commonly used". Two or three short paragraphs at most.
 - usage_instructions: the best ways to use and prepare it (for example: crush before use, how much for a pot of tea, add near the end of cooking).
 - origin: where the plant or product comes from originally, in general (for example "Native to southern China and Vietnam"). This is NOT where the shop buys it; never guess a supplier or country of purchase.
 - storage_instructions: how to keep it fresh.
+- warnings: only real, well-known cautions for THIS product (for example: not for pregnant women, not for small children, can cause allergy, avoid large amounts with certain conditions). Empty string if there is none. Never a general "ask your doctor" sentence.
 - seo_title: at most 60 characters, includes the product name.
 - seo_description: at most 160 characters.
 
 Rules (the business requires these):
-- Never make health or medical claims. Do not say it cures, treats, heals, prevents or helps with any illness, symptom or body condition, and do not give doses for health purposes. Describe food, drink, household and everyday uses only.
+- Health uses and benefits (the shop wants these): describe the health and wellness uses this product is widely known for and that are supported by reliable sources, and what it contains (for example vitamins, fibre, healthy fats). Write them as how people commonly use it or what it is known for ("many people drink ginger tea when they have a cold or an upset stomach", "it is rich in fibre", "it is known to support digestion"), never as a promise or a guarantee.
+- Never say it cures, heals or treats a disease, never name serious diseases (such as cancer, diabetes, HIV, high blood pressure, infertility), never give doses for an illness, and never suggest using it instead of a doctor's treatment. If a health benefit is only a belief without good evidence, leave it out.
 - Speak about natural products. Never use the words "medicine", "medicinal", "remedy", "traditional" or "herbal medicine" in English, and never use "imiti", "umuti", "gakondo", "ibicuruzwa" or "ubucuruzi" in Kinyarwanda. In Kinyarwanda you may say "ibintu by'umwimerere" or "ibikomoka ku bimera".
-- Do not add general disclaimers or advice to see a doctor.
+- Do not add general disclaimers or advice to see a doctor (put only product-specific cautions in "warnings").
 - Never mention prices, sizes, stock, delivery, discounts, the shop's suppliers or anything else about the business itself.
 - Only write what is widely known and true for this product. If you are not sure what the product is, or not sure about a field, return an empty string for that field rather than guessing.
 - Plain, warm, simple language. No marketing exaggeration, no emojis, no headings or bullet symbols.

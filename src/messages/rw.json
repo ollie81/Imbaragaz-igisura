@@ -365,7 +365,7 @@
     },
     "aiDraft": {
       "title": "Ubufasha bwa AI",
-      "intro": "AI ishobora kwandika umushinga mu dusanduku turimo ubusa hepfo, mu ndimi zombi: ibisobanuro, uko bikunze gukoreshwa, uburyo bwiza bwo kubikoresha, aho bikomoka n'uko bibikwa. Ntishyiramo ibiciro, amafoto cyangwa ibyo kwitondera.",
+      "intro": "AI ishobora kwandika umushinga mu dusanduku turimo ubusa hepfo, mu ndimi zombi: ibisobanuro, uko bikunze gukoreshwa (harimo akamaro bizwiho ku buzima), uburyo bwiza bwo kubikoresha, aho bikomoka, uko bibikwa n'ibyo kwitondera kuri icyo kintu. Ntishyiramo ibiciro cyangwa amafoto.",
       "reviewNote": "Soma kandi ukosore byose mbere yo gukanda Bika. Reba neza Ikinyarwanda.",
       "button": "Andikisha umushinga na AI",
       "working": "Irandika… bishobora gufata umunota umwe.",

@@ -365,7 +365,7 @@
     },
     "aiDraft": {
       "title": "Help from AI",
-      "intro": "AI can write a first draft for the empty boxes below, in both languages: description, how it is commonly used, best ways to use it, origin and storage. It never adds prices, photos or warnings.",
+      "intro": "AI can write a first draft for the empty boxes below, in both languages: description, how it is commonly used (including well-known health uses and benefits), best ways to use it, origin, storage and product-specific warnings. It never adds prices or photos.",
       "reviewNote": "Read and correct everything before you tap Save. Check the Kinyarwanda carefully.",
       "button": "Write a draft with AI",
       "working": "Writing… this can take up to a minute.",

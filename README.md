@@ -142,9 +142,8 @@ Design notes:
 - **Prices** are on `product_variants` (one row per size). `price` is nullable: `NULL` means
   "ask for the price" — it is never shown as 0 and never guessed.
 - **Health information:** there is intentionally **no medical-claims column**. `traditional_use`
-  must always be presented as traditional use. Medically verified claims, if ever needed, require a
-  new table that records the evidence source and reviewer. This also gives the future AI assistant a
-  clear boundary.
+  ("How it is commonly used") may include widely known health uses and benefits written as common
+  use, never as cures or treatment promises; product-specific cautions go in `warnings`.
 - Allowed values (status, availability, units, roles) use `CHECK` constraints instead of enums so
   they can be extended in a later migration. `products.metadata` (jsonb) holds small extras until
   they deserve a real column.
@@ -200,7 +199,8 @@ Sign in at `/rw/admin/login` (or `/en/admin/login`). Only accounts listed in `pu
   both languages (name, descriptions, how it is commonly used, directions, origin, storage, search
   texts) and marks them; it never touches text already written and never adds prices, photos,
   ingredients or warnings. Nothing is saved until the manager has read and corrected the draft and
-  taps Save. The prompt (`src/server/admin/ai-draft.ts`) forbids health claims and the words the
+  taps Save. The prompt (`src/server/admin/ai-draft.ts`) allows widely known health uses and benefits
+  (written as common use, plus product-specific warnings) but forbids cure/treatment claims and the words the
   business asked not to use, and any drafted box containing them is dropped. Each draft costs a
   few US cents.
 - **Photos**: real photos only. They are resized in the browser (max 1600 px, WebP), which also

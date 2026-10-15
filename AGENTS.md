@@ -16,10 +16,13 @@ Read `README.md` (Architecture section) before changing code. Non-negotiables:
   descriptions come from Supabase. Never invent products, prices, testimonials or business facts.
   The only exception is `src/config/business-defaults.ts`: verified facts used as a fallback when the
   database is unavailable (keep it in sync with the seed migrations; never add unconfirmed data).
-- **No medical claims.** How a product is used is stored in `traditional_use` and shown as
-  "How it is commonly used" / "Uko bikunze gukoreshwa". Never write cures or treatment promises.
-  At the business's request the site shows NO general health disclaimers or "ask a doctor" notes;
-  warnings appear only when the manager enters them for a specific product.
+- **Health uses, never cure claims.** How a product is used is stored in `traditional_use` and
+  shown as "How it is commonly used" / "Uko bikunze gukoreshwa". At the business's request this
+  includes widely known health and wellness uses and benefits, written as common use ("many
+  people drink it when…", "it is rich in…"). Never write cures, treatment promises, doses for
+  illness or claims about serious diseases. The site shows NO general health disclaimers or "ask a
+  doctor" notes; product-specific warnings go in `warnings` (AI may draft them; the manager
+  reviews everything before saving).
 - **Wording (requested by the business).** Customer-facing text speaks about **natural** products.
   Do not use "medicine"/"imiti", "traditional"/"gakondo" or "ibicuruzwa"/"ubucuruzi" (trade) to
   describe what the business offers. In Kinyarwanda use e.g. "Ibyo ducuruza", "ibintu by'umwimerere",
