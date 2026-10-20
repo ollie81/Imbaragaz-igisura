@@ -122,6 +122,9 @@ export type Database = {
           created_at: string;
           updated_at: string;
           experience_years: number | null;
+          shop_photo_path: string | null;
+          shop_photo_width: number | null;
+          shop_photo_height: number | null;
         };
         Insert: {
           id?: number;
@@ -139,6 +142,9 @@ export type Database = {
           created_at?: string;
           updated_at?: string;
           experience_years?: number | null;
+          shop_photo_path?: string | null;
+          shop_photo_width?: number | null;
+          shop_photo_height?: number | null;
         };
         Update: {
           id?: number;
@@ -156,6 +162,9 @@ export type Database = {
           created_at?: string;
           updated_at?: string;
           experience_years?: number | null;
+          shop_photo_path?: string | null;
+          shop_photo_width?: number | null;
+          shop_photo_height?: number | null;
         };
         Relationships: [];
       };

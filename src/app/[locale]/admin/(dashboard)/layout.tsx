@@ -49,6 +49,9 @@ export default async function AdminDashboardLayout({
               { href: "/admin", label: t("nav.dashboard") },
               { href: "/admin/products", label: t("nav.products") },
               { href: "/admin/categories", label: t("nav.categories") },
+              ...(admin.role === "owner" || admin.role === "manager"
+                ? [{ href: "/admin/shop-photo", label: t("nav.shopPhoto") }]
+                : []),
             ]}
           />
         </Container>

@@ -19,7 +19,8 @@ export function HeroVisual({ image, className }: { image?: HeroImage; className?
             src={image.src}
             alt={image.alt}
             fill
-            priority
+            loading="eager"
+            fetchPriority="high"
             sizes="(min-width: 1024px) 420px, 80vw"
             className="object-cover"
           />

@@ -35,6 +35,7 @@ export function localBusinessJsonLd(
     url,
     inLanguage: locale,
     description: business.tagline ?? options.description,
+    image: business.shopPhoto?.url,
     telephone: business.phones[0]?.value,
     contactPoint: business.phones.map((p) => ({
       "@type": "ContactPoint",

@@ -213,6 +213,13 @@ Sign in at `/rw/admin/login` (or `/en/admin/login`). Only accounts listed in `pu
 - **Categories**: create, rename (both languages), hide, reorder (↑/↓) and delete. Only categories
   with published products appear as filters on the website.
 
+## Shop photo (admin)
+
+**Admin → Shop photo** (owners and managers): upload, replace or remove the photo shown at the top
+of the home page (otherwise a drawing is shown). It is resized in the browser, stored in the
+`site-media` bucket under `shop/`, and recorded in `business_settings.shop_photo_*`; the old file
+is deleted when replaced. The photo is also added to the LocalBusiness structured data for Google.
+
 ## Order list (customers)
 
 Visitors can collect products in an **order list** (header button, "+" on single-size product

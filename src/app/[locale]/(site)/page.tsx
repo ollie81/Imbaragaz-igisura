@@ -58,7 +58,20 @@ export default async function HomePage({ params }: LocaleParams) {
           description: t("metadata.description", { years: business.experienceYears }),
         })}
       />
-      <Hero business={business} contacts={contacts} />
+      <Hero
+        business={business}
+        contacts={contacts}
+        image={
+          business.shopPhoto
+            ? {
+                src: business.shopPhoto.url,
+                alt: t("home.hero.photoAlt", { name: business.name }),
+                width: business.shopPhoto.width ?? 1200,
+                height: business.shopPhoto.height ?? 1600,
+              }
+            : undefined
+        }
+      />
       <Highlights business={business} />
       <FeaturedProducts products={products} contacts={contacts} businessName={business.name} />
       <WhyChoose experienceYears={business.experienceYears} />

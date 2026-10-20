@@ -54,7 +54,8 @@
     "hero": {
       "eyebrow": "Musanze, Rwanda",
       "title": "Ibintu by'umwimerere. Imyaka irenga {years} y'icyizere.",
-      "description": "Menya ibikomoka ku bimera n'ibindi by'umwimerere ducuruza, kandi utuvugishe ako kanya kuri WhatsApp cyangwa kuri telefoni. Twishimiye kugufasha kubona icyo ukeneye."
+      "description": "Menya ibikomoka ku bimera n'ibindi by'umwimerere ducuruza, kandi utuvugishe ako kanya kuri WhatsApp cyangwa kuri telefoni. Twishimiye kugufasha kubona icyo ukeneye.",
+      "photoAlt": "Iduka rya {name}"
     },
     "highlights": {
       "label": "Mu ncamake",
@@ -208,7 +209,8 @@
     "nav": {
       "dashboard": "Ibiro",
       "products": "Ibyo ducuruza",
-      "categories": "Ibyiciro"
+      "categories": "Ibyiciro",
+      "shopPhoto": "Ifoto y'iduka"
     },
     "products": {
       "title": "Ibyo ducuruza",
@@ -379,6 +381,21 @@
       "errorBusy": "OpenAI irahuze cyangwa umupaka w'ikoreshwa wagezweho. Tegereza umunota umwe wongere ugerageze.",
       "errorModel": "Iyi konti ya OpenAI ntishobora gukoresha iyi AI. Muri Vercel, ongeramo OPENAI_MODEL = gpt-5.4-mini, hanyuma ukore Redeploy.",
       "errorTimeout": "AI yatinze gusubiza. Ongera ugerageze."
+    },
+    "shopPhoto": {
+      "title": "Ifoto y'iduka",
+      "intro": "Iyi foto igaragara hejuru ku rupapuro rw'ibanze, kugira ngo abantu bamenye iduka ryanyu. Iyo nta foto ihari, hagaragara igishushanyo.",
+      "tip1": "Yifate ku manywa, telefone uyifashe ihagaze.",
+      "tip2": "Erekana imbere y'iduka n'icyapa n'ibyo mucuruza; impande zishobora gukatwa ku rubuga.",
+      "tip3": "Koresha ifoto nyayo y'iduka uko rimeze ubu.",
+      "choose": "Shyiraho ifoto y'iduka",
+      "replace": "Hindura ifoto",
+      "remove": "Kuraho ifoto",
+      "removeConfirm": "Gukuraho ifoto y'iduka? Urupapuro rw'ibanze ruzongera kugaragaza igishushanyo.",
+      "none": "Nta foto y'iduka irashyirwaho.",
+      "currentAlt": "Ifoto y'iduka iriho ubu",
+      "saved": "Byabitswe. Urupapuro rw'ibanze ubu rugaragaza iyi foto.",
+      "removed": "Ifoto yakuweho."
     }
   },
   "products": {

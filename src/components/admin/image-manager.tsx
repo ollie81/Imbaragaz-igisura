@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useActionState, useEffect, useId, useRef, useState } from "react";
 
 import { buttonStyles } from "@/components/ui/button";
+import { preparePhoto } from "@/lib/images/prepare-photo";
 import { PRODUCT_IMAGE_RULES, PRODUCT_IMAGES_BUCKET } from "@/lib/products/images";
 import { createSupabaseBrowserClient } from "@/lib/supabase/browser";
 import { cn } from "@/lib/utils/cn";
@@ -36,37 +37,6 @@ type UploadItem = {
 };
 
 const MB = 1024 * 1024;
-
-/**
- * Resizes a photo in the browser before upload: at most 1600px on the longest
- * edge, re-encoded as WebP (JPEG fallback). This keeps pages fast on mobile
- * data and removes hidden metadata such as the GPS location of the camera.
- */
-async function preparePhoto(file: File) {
-  const bitmap = await createImageBitmap(file, { imageOrientation: "from-image" });
-  const scale = Math.min(
-    1,
-    PRODUCT_IMAGE_RULES.maxDimension / Math.max(bitmap.width, bitmap.height),
-  );
-  const width = Math.round(bitmap.width * scale);
-  const height = Math.round(bitmap.height * scale);
-
-  const canvas = document.createElement("canvas");
-  canvas.width = width;
-  canvas.height = height;
-  const context = canvas.getContext("2d");
-  if (!context) throw new Error("canvas");
-  context.drawImage(bitmap, 0, 0, width, height);
-  bitmap.close();
-
-  const encode = (type: string) =>
-    new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, type, 0.85));
-  let blob = await encode("image/webp");
-  if (!blob || blob.type !== "image/webp") blob = await encode("image/jpeg");
-  if (!blob) throw new Error("encode");
-
-  return { blob, width, height, extension: blob.type === "image/webp" ? "webp" : "jpg" };
-}
 
 function Uploader({ productId }: { productId: string }) {
   const t = useTranslations("admin.images");
@@ -114,7 +84,7 @@ function Uploader({ productId }: { productId: string }) {
 
       let photo: Awaited<ReturnType<typeof preparePhoto>>;
       try {
-        photo = await preparePhoto(file);
+        photo = await preparePhoto(file, PRODUCT_IMAGE_RULES.maxDimension);
         if (photo.blob.size > PRODUCT_IMAGE_RULES.maxUploadBytes) throw new Error("size");
       } catch {
         update(item.key, { status: "error", error: t("errors.process") });

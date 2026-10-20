@@ -54,7 +54,8 @@
     "hero": {
       "eyebrow": "Musanze, Rwanda",
       "title": "Natural products. Trusted for over {years} years.",
-      "description": "Explore our natural products and contact us directly by WhatsApp or phone. We are happy to help you find what you are looking for."
+      "description": "Explore our natural products and contact us directly by WhatsApp or phone. We are happy to help you find what you are looking for.",
+      "photoAlt": "The {name} shop"
     },
     "highlights": {
       "label": "At a glance",
@@ -208,7 +209,8 @@
     "nav": {
       "dashboard": "Dashboard",
       "products": "Products",
-      "categories": "Categories"
+      "categories": "Categories",
+      "shopPhoto": "Shop photo"
     },
     "products": {
       "title": "Products",
@@ -379,6 +381,21 @@
       "errorBusy": "OpenAI is busy or the usage limit was reached. Wait a minute and try again.",
       "errorModel": "This OpenAI account cannot use the selected AI model. In Vercel, add OPENAI_MODEL = gpt-5.4-mini, then redeploy.",
       "errorTimeout": "AI took too long to answer. Please try again."
+    },
+    "shopPhoto": {
+      "title": "Shop photo",
+      "intro": "This photo is shown at the top of the home page, so visitors can recognise your shop. Without a photo, a drawing is shown.",
+      "tip1": "Take it in daylight, holding the phone upright (portrait).",
+      "tip2": "Show the front of the shop with the sign and some products; the edges may be cut off on the website.",
+      "tip3": "Use a real photo of your shop as it looks today.",
+      "choose": "Add shop photo",
+      "replace": "Replace photo",
+      "remove": "Remove photo",
+      "removeConfirm": "Remove the shop photo? The home page will show the drawing again.",
+      "none": "No shop photo yet.",
+      "currentAlt": "Current shop photo",
+      "saved": "Saved. The home page now shows this photo.",
+      "removed": "Photo removed."
     }
   },
   "products": {

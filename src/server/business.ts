@@ -6,6 +6,7 @@ import { businessDefaults } from "@/config/business-defaults";
 import { isSupabaseConfigured } from "@/config/env";
 import { defaultLocale, type AppLocale } from "@/i18n/config";
 import { pickTranslation } from "@/lib/i18n/content";
+import { siteMediaUrl } from "@/lib/site-media";
 import { createSupabasePublicClient } from "@/lib/supabase/public";
 import type { OpeningInterval } from "@/lib/utils/hours";
 import type { Tables } from "@/types/database";
@@ -29,6 +30,8 @@ export type BusinessInfo = {
   tagline: string | null;
   about: string | null;
   locationDescription: string | null;
+  /** Photo of the shop uploaded in the admin dashboard, or null. */
+  shopPhoto: { url: string; width: number | null; height: number | null } | null;
   phones: BusinessContact[];
   whatsapp: BusinessContact[];
   otherContacts: BusinessContact[];
@@ -63,6 +66,7 @@ function getDefaultBusinessInfo(locale: AppLocale): BusinessInfo {
     tagline: null,
     about: null,
     locationDescription: d.locationDescription[locale] ?? d.locationDescription[defaultLocale],
+    shopPhoto: null,
     phones: toContacts("phone", d.phones),
     whatsapp: toContacts("whatsapp", d.whatsapp),
     otherContacts: [],
@@ -127,6 +131,14 @@ export const getBusinessInfo = cache(async (locale: AppLocale): Promise<Business
       tagline: t?.tagline ?? null,
       about: t?.about ?? null,
       locationDescription: t?.location_description ?? null,
+      // Columns added in a later migration; tolerate databases that lack them.
+      shopPhoto: s.shop_photo_path
+        ? {
+            url: siteMediaUrl(s.shop_photo_path),
+            width: s.shop_photo_width ?? null,
+            height: s.shop_photo_height ?? null,
+          }
+        : null,
       phones: allContacts.filter((c) => c.type === "phone"),
       whatsapp: allContacts.filter((c) => c.type === "whatsapp"),
       otherContacts: allContacts.filter((c) => c.type !== "phone" && c.type !== "whatsapp"),
