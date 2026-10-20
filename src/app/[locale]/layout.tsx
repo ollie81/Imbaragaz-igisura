@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
+import { SiteAnalytics } from "@/components/site-analytics";
 import { businessDefaults } from "@/config/business-defaults";
 import { siteConfig } from "@/config/site";
 import { routing } from "@/i18n/routing";
@@ -50,6 +51,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       <body className="flex min-h-dvh flex-col">
         {/* Client components receive their text as props, so no message catalog is sent to the browser. */}
         <NextIntlClientProvider messages={null}>{children}</NextIntlClientProvider>
+        <SiteAnalytics />
       </body>
     </html>
   );
