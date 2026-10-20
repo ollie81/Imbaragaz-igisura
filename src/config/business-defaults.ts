@@ -25,7 +25,7 @@ export const businessDefaults = {
   /** Map search for the bus station the shop is inside (no coordinates have been provided). */
   landmarkSearchQuery: "Musanze Bus Station, Musanze, Rwanda",
   locationDescription: {
-    en: "Inside Musanze Bus Station",
-    rw: "Muri Gare ya Musanze",
+    en: "Inside Musanze Bus Station: first floor, 3rd door (facing north)",
+    rw: "Muri Gare ya Musanze: igorofa rya mbere, umuryango wa 3 (ureba mu majyaruguru)",
   } satisfies Record<AppLocale, string>,
 } as const;
