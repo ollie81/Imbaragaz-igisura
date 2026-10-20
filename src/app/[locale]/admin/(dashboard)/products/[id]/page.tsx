@@ -61,48 +61,73 @@ export default async function EditProductPage({ params }: Props) {
         </div>
       </div>
 
-      <ProductForm
-        product={{
-          id: product.id,
-          slug: product.slug,
-          status: product.status,
-          categoryId: product.category_id,
-          availability: product.availability,
-          isFeatured: product.is_featured,
-          displayOrder: product.display_order,
-          translations: {
-            rw: product.translations.rw ?? undefined,
-            en: product.translations.en ?? undefined,
-          },
-        }}
-        categories={categories.map((c) => ({ id: c.id, label: c.label }))}
-        aiEnabled={Boolean(getOpenAiApiKey())}
-      />
+      {/* Quick links: on phones the page is long, and prices are what is edited most. */}
+      <nav aria-label={t("productForm.jumpLabel")} className="flex flex-wrap gap-2">
+        {(
+          [
+            ["prices", t("variants.title")],
+            ["photos", t("images.title")],
+            ["details", t("productForm.contentSection")],
+          ] as const
+        ).map(([id, label]) => (
+          <a
+            key={id}
+            href={`#${id}`}
+            className="inline-flex min-h-11 items-center rounded-full border border-border bg-background px-4 text-sm font-semibold text-leaf-900 hover:bg-muted"
+          >
+            {label}
+          </a>
+        ))}
+      </nav>
 
-      <ImageManager
-        productId={product.id}
-        images={product.images.map((i) => ({
-          id: i.id,
-          url: i.url,
-          isPrimary: i.is_primary,
-          alts: i.alts,
-        }))}
-      />
+      <div id="prices" className="scroll-mt-4">
+        <VariantsEditor
+          productId={product.id}
+          variants={product.variants.map((v) => ({
+            id: v.id,
+            label: v.label,
+            sizeValue: v.size_value,
+            sizeUnit: v.size_unit,
+            price: v.price,
+            currency: v.currency,
+            isAvailable: v.is_available,
+            isDefault: v.is_default,
+            displayOrder: v.display_order,
+          }))}
+        />
+      </div>
 
-      <VariantsEditor
-        productId={product.id}
-        variants={product.variants.map((v) => ({
-          id: v.id,
-          label: v.label,
-          sizeValue: v.size_value,
-          sizeUnit: v.size_unit,
-          price: v.price,
-          currency: v.currency,
-          isAvailable: v.is_available,
-          isDefault: v.is_default,
-          displayOrder: v.display_order,
-        }))}
-      />
+      <div id="photos" className="scroll-mt-4">
+        <ImageManager
+          productId={product.id}
+          images={product.images.map((i) => ({
+            id: i.id,
+            url: i.url,
+            isPrimary: i.is_primary,
+            alts: i.alts,
+          }))}
+        />
+      </div>
+
+      <div id="details" className="scroll-mt-4">
+        <ProductForm
+          product={{
+            id: product.id,
+            slug: product.slug,
+            status: product.status,
+            categoryId: product.category_id,
+            availability: product.availability,
+            isFeatured: product.is_featured,
+            displayOrder: product.display_order,
+            translations: {
+              rw: product.translations.rw ?? undefined,
+              en: product.translations.en ?? undefined,
+            },
+          }}
+          categories={categories.map((c) => ({ id: c.id, label: c.label }))}
+          aiEnabled={Boolean(getOpenAiApiKey())}
+        />
+      </div>
 
       <section className="rounded-card border border-red-200 bg-red-50/50 p-5 sm:p-6">
         <h2 className="font-sans text-lg font-semibold text-red-900">

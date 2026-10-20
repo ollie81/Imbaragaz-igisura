@@ -278,7 +278,8 @@
       "dangerZone": "Siba",
       "deleteText": "Bisiba burundu iki kintu, ingano zacyo n'amafoto yacyo. Kugira ngo ugihishe by'agateganyo, shyira uko gihagaze kuri Kiri gutegurwa cyangwa Cyabitswe.",
       "delete": "Siba burundu",
-      "deleteConfirm": "Gusiba burundu iki kintu n'amafoto yacyo yose?"
+      "deleteConfirm": "Gusiba burundu iki kintu n'amafoto yacyo yose?",
+      "jumpLabel": "Jya kuri"
     },
     "variants": {
       "title": "Ingano n'ibiciro",

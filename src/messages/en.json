@@ -278,7 +278,8 @@
       "dangerZone": "Delete product",
       "deleteText": "Deletes the product, its sizes and its photos permanently. To hide it temporarily, set the status to Draft or Archived instead.",
       "delete": "Delete permanently",
-      "deleteConfirm": "Delete this product and all its photos permanently?"
+      "deleteConfirm": "Delete this product and all its photos permanently?",
+      "jumpLabel": "Jump to"
     },
     "variants": {
       "title": "Sizes and prices",
