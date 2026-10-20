@@ -26,6 +26,6 @@ export const businessDefaults = {
   landmarkSearchQuery: "Musanze Bus Station, Musanze, Rwanda",
   locationDescription: {
     en: "Inside Musanze Bus Station: ground floor, 3rd door (facing north)",
-    rw: "Muri Gare ya Musanze: hasi (nta ngazi), umuryango wa 3 (ureba mu majyaruguru)",
+    rw: "Muri Gare ya Musanze: ku miryango yo hasi, umuryango wa gatatu (ureba mu majyaruguru)",
   } satisfies Record<AppLocale, string>,
 } as const;
