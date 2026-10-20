@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "Ibikomoka ku Bimera n'Ibindi by'Umwimerere i Musanze",
-    "description": "Imbaraga z'Igisura itanga ibikomoka ku bimera n'ibindi by'umwimerere i Musanze, mu Rwanda, hafi ya Gare ya Musanze. Dufite uburambe bw'imyaka irenga {years}. Duhamagare cyangwa utwandikire kuri WhatsApp."
+    "description": "Imbaraga z'Igisura itanga ibikomoka ku bimera n'ibindi by'umwimerere i Musanze, mu Rwanda, muri Gare ya Musanze. Dufite uburambe bw'imyaka irenga {years}. Duhamagare cyangwa utwandikire kuri WhatsApp."
   },
   "common": {
     "skipToContent": "Jya ku bikubiye ku rupapuro",
@@ -127,7 +127,7 @@
       "title": "Aho turi n'amasaha y'akazi",
       "address": "Aderesi",
       "getDirections": "Erekwa inzira",
-      "directionsNote": "Ikarita igaragaza Gare ya Musanze. Iduka ryacu riri hafi yayo."
+      "directionsNote": "Ikarita igaragaza Gare ya Musanze. Iduka ryacu riri muri iyo gare."
     },
     "final": {
       "title": "Wifuza kumenya byinshi?",

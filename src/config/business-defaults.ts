@@ -22,10 +22,10 @@ export const businessDefaults = {
   whatsapp: ["+250788220423", "+250783965104"],
   /** Every day (ISO 1–7), 06:00–22:00 */
   dailyHours: { opensAt: "06:00:00", closesAt: "22:00:00" },
-  /** Map search for the landmark the shop is next to (no coordinates have been provided). */
+  /** Map search for the bus station the shop is inside (no coordinates have been provided). */
   landmarkSearchQuery: "Musanze Bus Station, Musanze, Rwanda",
   locationDescription: {
-    en: "Near Musanze Bus Station",
-    rw: "Hafi ya Gare ya Musanze",
+    en: "Inside Musanze Bus Station",
+    rw: "Muri Gare ya Musanze",
   } satisfies Record<AppLocale, string>,
 } as const;

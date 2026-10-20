@@ -2,7 +2,7 @@ import { businessDefaults } from "@/config/business-defaults";
 
 export type Directions = {
   url: string;
-  /** True when the link targets a nearby landmark rather than the exact shop. */
+  /** True when the link targets the landmark (the bus station) rather than the exact shop. */
   isApproximate: boolean;
 };
 
@@ -16,7 +16,7 @@ type Location = {
  * Best available directions link, without inventing coordinates:
  *   1. the Google Maps link saved by the business, else
  *   2. exact coordinates saved by the business, else
- *   3. a map search for the confirmed landmark the shop is next to.
+ *   3. a map search for the confirmed landmark the shop is in (Musanze Bus Station).
  */
 export function getDirections(location: Location): Directions {
   if (location.googleMapsUrl) return { url: location.googleMapsUrl, isApproximate: false };
