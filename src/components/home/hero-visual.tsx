@@ -7,24 +7,29 @@ export type HeroImage = { src: string; alt: string; width: number; height: numbe
 /**
  * Hero artwork. Until real photography of the shop or products is provided,
  * this renders an abstract botanical composition (pure SVG, no image download).
- * Pass `image` (e.g. from the site-media bucket) to show a real photo inside
- * the same arch frame.
+ * Pass `image` (e.g. the shop photo from the site-media bucket) to show that
+ * photo instead, whole and in its own proportions.
  */
 export function HeroVisual({ image, className }: { image?: HeroImage; className?: string }) {
   if (image) {
+    // A real photo is shown whole, in its own proportions (nothing cropped).
     return (
-      <div className={cn("relative mx-auto aspect-[44/50] w-full max-w-md", className)}>
-        <div className="absolute inset-[6%_10%_0] overflow-hidden rounded-t-full bg-leaf-100 shadow-lift">
-          <Image
-            src={image.src}
-            alt={image.alt}
-            fill
-            loading="eager"
-            fetchPriority="high"
-            sizes="(min-width: 1024px) 420px, 80vw"
-            className="object-cover"
-          />
-        </div>
+      <div
+        className={cn(
+          "relative mx-auto w-full overflow-hidden rounded-card bg-leaf-100 shadow-lift",
+          className,
+        )}
+        style={{ aspectRatio: `${image.width} / ${image.height}` }}
+      >
+        <Image
+          src={image.src}
+          alt={image.alt}
+          fill
+          loading="eager"
+          fetchPriority="high"
+          sizes="(min-width: 1024px) 560px, 100vw"
+          className="object-cover"
+        />
       </div>
     );
   }

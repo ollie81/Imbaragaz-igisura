@@ -75,7 +75,11 @@ export async function Hero({ business, contacts, image }: HeroProps) {
 
         <HeroVisual
           image={image}
-          className="max-w-[240px] animate-fade-up sm:max-w-sm lg:max-w-md"
+          className={
+            image
+              ? "animate-fade-up lg:max-w-xl"
+              : "max-w-[240px] animate-fade-up sm:max-w-sm lg:max-w-md"
+          }
         />
       </Container>
     </section>
