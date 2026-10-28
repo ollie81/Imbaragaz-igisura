@@ -128,7 +128,9 @@
       "title": "Aho turi n'amasaha y'akazi",
       "address": "Aderesi",
       "getDirections": "Erekwa inzira",
-      "directionsNote": "Ikarita igaragaza Gare ya Musanze. Iduka ryacu riri muri iyo gare."
+      "directionsNote": "Ikarita igaragaza Gare ya Musanze. Iduka ryacu riri muri iyo gare.",
+      "howToFind": "Uko waduhabona",
+      "photoAlt": "Ifoto ya {number} yerekana inzira igana kuri {name}"
     },
     "final": {
       "title": "Wifuza kumenya byinshi?",
@@ -210,7 +212,7 @@
       "dashboard": "Ibiro",
       "products": "Ibyo ducuruza",
       "categories": "Ibyiciro",
-      "shopPhoto": "Ifoto y'iduka"
+      "shopPhoto": "Amafoto y'iduka"
     },
     "products": {
       "title": "Ibyo ducuruza",
@@ -397,6 +399,20 @@
       "currentAlt": "Ifoto y'iduka iriho ubu",
       "saved": "Byabitswe. Urupapuro rw'ibanze ubu rugaragaza iyi foto.",
       "removed": "Ifoto yakuweho."
+    },
+    "locationPhotos": {
+      "title": "Amafoto: uko waduhabona",
+      "intro": "Shyiraho amafoto afasha abakiriya kubona iduka, ukurikije uko inzira imeze: urugero aho binjirira muri gare, inyubako, n'umuryango wanyu. Agaragara ku rubuga afite nimero, munsi ya aderesi yanyu. Andika amagambo make asobanura buri foto.",
+      "choose": "Ongeraho amafoto",
+      "progress": "Birashyirwaho: ifoto ya {current} kuri {total}…",
+      "added": "{count, plural, one {Ifoto # yongeweho} other {Amafoto # yongeweho}}. Andika ibisobanuro kuri buri foto.",
+      "someFailed": "{added} yongeweho, {failed} ntiyashoboye gushyirwaho. Suzuma amafoto wongere ugerageze.",
+      "empty": "Nta mafoto arashyirwaho.",
+      "caption": "Ibisobanuro",
+      "captionExample": {
+        "rw": "Urugero: Injira muri Gare ya Musanze uturutse ku muhanda munini",
+        "en": "For example: Enter Musanze Bus Station from the main road"
+      }
     }
   },
   "products": {

@@ -7,11 +7,21 @@ import { ClockIcon, MapPinIcon } from "@/components/ui/icons";
 import { Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { sectionIds } from "@/config/navigation";
+import type { AppLocale } from "@/i18n/config";
 import { getDirections } from "@/lib/utils/maps";
 import type { BusinessInfo } from "@/server/business";
+import { getLocationPhotos } from "@/server/location-photos";
 
-export async function LocationHours({ business }: { business: BusinessInfo }) {
-  const t = await getTranslations();
+import { LocationPhotos } from "./location-photos";
+
+export async function LocationHours({
+  business,
+  locale,
+}: {
+  business: BusinessInfo;
+  locale: AppLocale;
+}) {
+  const [t, photos] = await Promise.all([getTranslations(), getLocationPhotos(locale)]);
   const directions = getDirections(business);
 
   return (
@@ -73,6 +83,8 @@ export async function LocationHours({ business }: { business: BusinessInfo }) {
           </Card>
         )}
       </div>
+
+      <LocationPhotos photos={photos} businessName={business.name} />
     </Section>
   );
 }

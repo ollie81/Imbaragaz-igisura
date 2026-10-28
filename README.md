@@ -220,6 +220,13 @@ of the home page (otherwise a drawing is shown). It is resized in the browser, s
 `site-media` bucket under `shop/`, and recorded in `business_settings.shop_photo_*`; the old file
 is deleted when replaced. The photo is also added to the LocalBusiness structured data for Google.
 
+## Location photos (admin)
+
+On the same admin page (**Shop photos**), owners and managers add numbered "How to find us"
+photos (entrance, building, door…) with a caption per language, reorder (↑/↓) or delete them.
+Stored in `site-media` under `location/` and in `location_photos` +
+`location_photo_translations`; shown under the address on the home and About pages.
+
 ## Order list (customers)
 
 Visitors can collect products in an **order list** (header button, "+" on single-size product

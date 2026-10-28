@@ -233,6 +233,75 @@ export type Database = {
         };
         Relationships: [];
       };
+      location_photo_translations: {
+        Row: {
+          photo_id: string;
+          locale: string;
+          caption: string;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          photo_id: string;
+          locale: string;
+          caption: string;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          photo_id?: string;
+          locale?: string;
+          caption?: string;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "location_photo_translations_photo_id_fkey";
+            columns: ["photo_id"];
+            isOneToOne: false;
+            referencedRelation: "location_photos";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "location_photo_translations_locale_fkey";
+            columns: ["locale"];
+            isOneToOne: false;
+            referencedRelation: "locales";
+            referencedColumns: ["code"];
+          },
+        ];
+      };
+      location_photos: {
+        Row: {
+          id: string;
+          storage_path: string;
+          width: number | null;
+          height: number | null;
+          display_order: number;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          storage_path: string;
+          width?: number | null;
+          height?: number | null;
+          display_order?: number;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          storage_path?: string;
+          width?: number | null;
+          height?: number | null;
+          display_order?: number;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Relationships: [];
+      };
       product_categories: {
         Row: {
           id: string;

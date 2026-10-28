@@ -42,7 +42,7 @@ export default async function AboutPage({ params }: LocaleParams) {
     <>
       <AboutPreview business={business} showLink={false} headingLevel="h1" />
       <WhyChoose experienceYears={business.experienceYears} />
-      <LocationHours business={business} />
+      <LocationHours business={business} locale={locale} />
       <ContactCta contacts={contacts} />
     </>
   );

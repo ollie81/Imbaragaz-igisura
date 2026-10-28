@@ -79,7 +79,7 @@ export default async function HomePage({ params }: LocaleParams) {
       <ProductInfo />
       <AboutPreview business={business} />
       <ContactCta contacts={contacts} />
-      <LocationHours business={business} />
+      <LocationHours business={business} locale={locale} />
       <FinalCta name={business.name} contacts={contacts} />
     </>
   );

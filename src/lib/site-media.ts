@@ -11,3 +11,6 @@ export function siteMediaUrl(storagePath: string): string {
   const path = storagePath.split("/").map(encodeURIComponent).join("/");
   return `${publicEnv.supabaseUrl}/storage/v1/object/public/${SITE_MEDIA_BUCKET}/${path}`;
 }
+
+/** Location photo path inside the bucket; matches the database check constraint. */
+export const LOCATION_PHOTO_PATH_PATTERN = /^location\/[0-9a-f-]{36}\.(webp|jpg)$/;

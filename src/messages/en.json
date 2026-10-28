@@ -128,7 +128,9 @@
       "title": "Location and opening hours",
       "address": "Address",
       "getDirections": "Get directions",
-      "directionsNote": "The map shows Musanze Bus Station. Our shop is inside the station."
+      "directionsNote": "The map shows Musanze Bus Station. Our shop is inside the station.",
+      "howToFind": "How to find us",
+      "photoAlt": "Photo {number} showing the way to {name}"
     },
     "final": {
       "title": "Ready to learn more?",
@@ -210,7 +212,7 @@
       "dashboard": "Dashboard",
       "products": "Products",
       "categories": "Categories",
-      "shopPhoto": "Shop photo"
+      "shopPhoto": "Shop photos"
     },
     "products": {
       "title": "Products",
@@ -397,6 +399,20 @@
       "currentAlt": "Current shop photo",
       "saved": "Saved. The home page now shows this photo.",
       "removed": "Photo removed."
+    },
+    "locationPhotos": {
+      "title": "Photos: how to find us",
+      "intro": "Add photos that help customers find the shop, in order: for example the bus station entrance, the building, and your door. They appear numbered on the website under your address. Write a short caption for each.",
+      "choose": "Add photos",
+      "progress": "Uploading photo {current} of {total}…",
+      "added": "{count, plural, one {# photo added} other {# photos added}}. Add a caption to each one.",
+      "someFailed": "{added} added, {failed} could not be uploaded. Check the photos and try again.",
+      "empty": "No photos yet.",
+      "caption": "Caption",
+      "captionExample": {
+        "rw": "Urugero: Injira muri Gare ya Musanze uturutse ku muhanda munini",
+        "en": "For example: Enter Musanze Bus Station from the main road"
+      }
     }
   },
   "products": {

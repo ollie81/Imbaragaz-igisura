@@ -1,17 +1,21 @@
 import { getTranslations } from "next-intl/server";
 
+import { LocationPhotosManager } from "@/components/admin/location-photos-manager";
 import { ShopPhotoManager } from "@/components/admin/shop-photo-manager";
 import { requireAdmin } from "@/lib/auth/admin";
 import { resolveLocale, type LocaleParams } from "@/lib/i18n/params";
 import { getBusinessInfo } from "@/server/business";
+import { listAdminLocationPhotos } from "@/server/location-photos";
 
 export default async function AdminShopPhotoPage({ params }: LocaleParams) {
   const locale = await resolveLocale(params);
   // Business-wide settings: owners and managers only (the database enforces the same).
   await requireAdmin(locale, ["owner", "manager"]);
-  const [t, business] = await Promise.all([
+  const [t, tl, business, locationPhotos] = await Promise.all([
     getTranslations("admin.shopPhoto"),
+    getTranslations("admin.locationPhotos"),
     getBusinessInfo(locale),
+    listAdminLocationPhotos(),
   ]);
 
   return (
@@ -24,6 +28,14 @@ export default async function AdminShopPhotoPage({ params }: LocaleParams) {
         <li>{t("tip3")}</li>
       </ul>
       <ShopPhotoManager photoUrl={business.shopPhoto?.url ?? null} />
+
+      <section id="location" className="mt-12 scroll-mt-4 border-t border-border pt-10">
+        <h2 className="text-2xl font-semibold text-leaf-900">{tl("title")}</h2>
+        <p className="mt-2 mb-6 text-muted-foreground">{tl("intro")}</p>
+        <LocationPhotosManager
+          photos={locationPhotos.map((p) => ({ id: p.id, url: p.url, captions: p.captions }))}
+        />
+      </section>
     </div>
   );
 }
