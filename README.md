@@ -243,3 +243,13 @@ the list are estimates; the business confirms prices and availability on WhatsAp
 - Use semantic colour tokens (`bg-primary`, `bg-accent`, `text-muted-foreground` …). Gold is for
   backgrounds/accents; don't put gold text on white (poor contrast).
 - Run `npm run check && npm run build` before committing.
+
+## Website screenshots
+
+![Screenshot 1](Screenshot_20261108-105210.jpg)
+
+![Screenshot 2](Screenshot_20261108-105217.jpg)
+
+![Screenshot 3](Screenshot_20261108-105313.jpg)
+
+![Screenshot 4](Screenshot_20261108-105322.jpg)
